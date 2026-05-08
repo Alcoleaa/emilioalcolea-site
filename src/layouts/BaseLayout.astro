@@ -1,0 +1,115 @@
+---
+/**
+ * BaseLayout
+ *
+ * Wraps every page with: full <head> (meta, canonical, OG, Twitter, fonts),
+ * Person JSON-LD, body grid background. Page content goes in default slot.
+ *
+ * Phase 1: head + JSON-LD + slot. Deploy bar / nav / footer arrive in Phase 3.
+ */
+import { site } from '../data/site';
+import '../styles/global.css';
+
+export interface Props {
+  title?: string;
+  description?: string;
+  /** Path-only canonical, e.g. "/about". Joined with site.url. */
+  path?: string;
+  ogImage?: string;
+  ogType?: 'website' | 'article' | 'profile';
+  /** Optional extra JSON-LD blocks (e.g. ProfilePage on /resume). */
+  schema?: Record<string, unknown>[];
+  lang?: string;
+}
+
+const {
+  title,
+  description = site.defaultDescription,
+  path = Astro.url.pathname,
+  ogImage = site.ogImage,
+  ogType = 'website',
+  schema = [],
+  lang = site.locale,
+} = Astro.props;
+
+const fullTitle = title ? `${title}${site.titleSuffix}` : site.defaultTitle;
+const canonical = new URL(path === '/' ? '/' : path.replace(/\/$/, ''), site.url).toString();
+const ogImageAbs = new URL(ogImage, site.url).toString();
+
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: site.author.name,
+  url: site.url,
+  image: new URL(site.portrait, site.url).toString(),
+  sameAs: [site.social.linkedin, site.social.substack, site.social.tersefy],
+  jobTitle: 'Founder',
+  worksFor: {
+    '@type': 'Organization',
+    name: 'Tersefy',
+    url: site.social.tersefy,
+  },
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: site.author.city,
+    addressRegion: site.author.region,
+    addressCountry: site.author.country,
+  },
+  alumniOf: {
+    '@type': 'EducationalOrganization',
+    name: 'Tec Milenio',
+  },
+  knowsAbout: site.knowsAbout,
+  knowsLanguage: site.knowsLanguage,
+  description: site.defaultDescription,
+};
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImageAbs} />
+    <meta property="og:locale" content={lang === 'es' ? 'es_MX' : 'en_US'} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageAbs} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,100..900,0..100,0..1;1,9..144,100..900,0..100,0..1&family=Karla:wght@300;400;500;600;700;800&family=Bebas+Neue&family=JetBrains+Mono:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(personSchema)}
+    />
+    {
+      schema.map((block) => (
+        <script type="application/ld+json" set:html={JSON.stringify(block)} />
+      ))
+    }
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

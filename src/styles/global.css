@@ -1,0 +1,112 @@
+/* =====================================================================
+   emilioalcolea.com  ·  global.css
+   Design tokens + base reset. Page-specific styles live in *.css siblings.
+   ===================================================================== */
+
+:root {
+  /* ---- Color: base ------------------------------------------------- */
+  --cream: #F5F1E8;
+  --ink: #1A1A1A;
+  --ink-muted: #5A4F45;
+
+  /* ---- Color: Mexican palette accents ------------------------------ */
+  --rosa: #E91E63;
+  --ochre: #D4A017;
+  --cobalt: #1E5FBC;
+  --green: #1B5E20;
+
+  /* ---- Color: special --------------------------------------------- */
+  --aubergine: #2A1B2D;
+  --cream-faded: rgba(245, 241, 232, 0.6);
+
+  /* ---- Color: rules / dividers ------------------------------------ */
+  --rule: #1A1A1A;
+  --rule-soft: rgba(26, 26, 26, 0.15);
+
+  /* ---- Typography: stacks ----------------------------------------- */
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-display-italic: 'Fraunces', Georgia, serif;
+  --font-body: 'Karla', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-impact: 'Bebas Neue', Impact, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+}
+
+/* ---- Reset --------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--cream);
+  background-image: url('/grid-bg.png');
+  background-size: 20px 20px;
+  background-repeat: repeat;
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.55;
+  font-weight: 400;
+  min-height: 100vh;
+  text-rendering: optimizeLegibility;
+}
+
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: var(--rosa);
+  text-decoration: none;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--rosa);
+  outline-offset: 3px;
+}
+
+button {
+  font: inherit;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  color: inherit;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+::selection {
+  background: var(--rosa);
+  color: var(--cream);
+}
+
+/* ---- Page container helper (centered column) ---------------------- */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 0 60px;
+  }
+}
