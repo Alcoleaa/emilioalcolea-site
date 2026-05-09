@@ -1,0 +1,16 @@
+---
+/**
+ * Footer: thin mono band above the deploy bar.
+ *   left:  domain · version · year
+ *   center: stars (rosa)
+ *   right: locale tags
+ */
+const year = new Date().getFullYear();
+const { version = 'v6' } = Astro.props;
+---
+
+<div class="footer-line" role="contentinfo">
+  <span>emilioalcolea.com · {version} · {year}</span>
+  <span class="footer-star" aria-hidden="true">✱ ✱ ✱</span>
+  <span>EN · ES · Tijuana</span>
+</div>

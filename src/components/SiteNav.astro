@@ -1,0 +1,38 @@
+---
+/**
+ * SiteNav: top brand + nav links. Sticky-feel via top border below
+ * coord-strip on pages that include the strip; standalone on others.
+ *
+ * Active link uses Astro.url.pathname matching (root-aware).
+ */
+import { site } from '../data/site';
+
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+const isCurrent = (href: string) => {
+  if (href === '/') return path === '/';
+  return path === href || path.startsWith(href + '/');
+};
+---
+
+<nav class="site-nav" aria-label="Primary">
+  <a href="/" class="brand" aria-label="Emilio Alcolea, home">
+    <span class="brand-first">Emilio</span><span class="brand-last">Alcolea</span>
+  </a>
+  <ul class="site-nav-links">
+    {
+      site.nav
+        .filter((item) => item.href !== '/')
+        .map((item) => (
+          <li>
+            <a
+              href={item.href}
+              class={isCurrent(item.href) ? 'current' : ''}
+              aria-current={isCurrent(item.href) ? 'page' : undefined}
+            >
+              {item.label}
+            </a>
+          </li>
+        ))
+    }
+  </ul>
+</nav>

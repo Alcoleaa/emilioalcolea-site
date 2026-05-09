@@ -1,0 +1,20 @@
+---
+/**
+ * ThesisCallout: rosa block with offset ochre shadow.
+ *   - `label` renders as mono uppercase tracked at top.
+ *   - Body content (italic Cormorant prose) goes in the default slot.
+ */
+export interface Props {
+  label?: string;
+}
+const { label = 'The thesis' } = Astro.props;
+---
+
+<aside class="thesis-callout">
+  <div class="thesis-callout-inner">
+    <div class="thesis-callout-label">{label}</div>
+    <div class="thesis-callout-body">
+      <slot />
+    </div>
+  </div>
+</aside>

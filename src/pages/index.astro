@@ -1,20 +1,93 @@
 ---
+/**
+ * Phase 3 visual smoke test. Real home content lands in Phase 4.
+ * This page demos: coord-strip, hero-name, tag-line, chips, flagship,
+ * h2 accent, more-list, thesis-callout. Uses BaseLayout so SiteNav,
+ * Footer, and DeployBar render too.
+ */
 import BaseLayout from '../layouts/BaseLayout.astro';
+import ThesisCallout from '../components/ThesisCallout.astro';
+import DuotonePhoto from '../components/DuotonePhoto.astro';
 ---
 
 <BaseLayout>
-  <main class="container" style="padding-top: 80px; padding-bottom: 80px;">
-    <p style="font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.18em; color: var(--ink-muted);">
-      emilioalcolea.com · phase 1 foundation
-    </p>
-    <h1 style="font-family: var(--font-display); font-size: clamp(64px, 12vw, 130px); line-height: 0.85; letter-spacing: -0.035em; margin-top: 24px;">
-      <span style="display: block; font-weight: 600;">Emilio</span>
-      <span
-        style="display: block; font-family: var(--font-display-italic); font-style: italic; font-weight: 800; font-variation-settings: 'SOFT' 100, 'WONK' 100; color: var(--rosa); margin-left: 0.15em;"
-      >Alcolea</span>
-    </h1>
-    <p style="margin-top: 32px; font-family: var(--font-display); font-style: italic; font-size: 22px; line-height: 1.3; border-left: 4px solid var(--rosa); padding-left: 16px;">
-      Site under construction. Phase 1 foundation in place. Real content lands in Phase 4.
-    </p>
-  </main>
+  <div class="coord-strip" slot="coord-strip">
+    <span>Tijuana <span class="dot-pink">●</span> Mexico · Cross-border MX-US</span>
+    <span>32°31′N · 117°02′W · Est. 2014</span>
+  </div>
+
+  <h1 class="hero-name">
+    <span class="hero-first">Emilio</span>
+    <span class="hero-last">Alcolea</span>
+  </h1>
+
+  <p class="tag-line">
+    Phase 3 component preview. Real content arrives in Phase 4. Verifying patterns render correctly across the design system.
+  </p>
+
+  <div class="chips">
+    <span class="chip chip-rosa">Healthcare</span>
+    <span class="chip chip-ochre">Tech</span>
+    <span class="chip chip-cobalt">Government</span>
+    <span class="chip chip-green">Politics</span>
+    <span class="chip chip-dark">MX × US</span>
+  </div>
+
+  <div class="flagship">
+    <div class="flagship-inner">
+      <div class="flagship-label">Flagship Result · VIDA Wellness & Beauty</div>
+      <div class="flagship-stat">
+        $1,300<span class="arrow"> → </span>$490
+        <span class="pct">−62%</span>
+      </div>
+      <div class="flagship-desc">
+        Cost Per Surgery cut at VIDA Wellness & Beauty Center while reducing total ad spend by 20%. The methodology behind that cut became Tersefy.
+      </div>
+    </div>
+  </div>
+
+  <h2 class="h2-cobalt">Thesis</h2>
+  <ThesisCallout label="The thesis">
+    <p>Doctors competing on paid ads forever is not a defensible strategy. Content, SEO, AI visibility, and professional reputation are.</p>
+  </ThesisCallout>
+
+  <h2 class="h2-ochre">Portrait</h2>
+  <DuotonePhoto
+    src="/emilio-portrait.jpg"
+    alt="Emilio Alcolea, portrait, Tijuana"
+    captionPrefix="Right"
+    caption="Portrait, May 2026. Tijuana coastline."
+  />
+
+  <h2 class="h2-rosa">More</h2>
+  <ul class="more-list">
+    <li>
+      <a href="/about">
+        <span class="num">01</span>
+        <span class="name">About<span class="meta">long-form bio</span></span>
+        <span class="arrow">→</span>
+      </a>
+    </li>
+    <li>
+      <a href="/writing">
+        <span class="num">02</span>
+        <span class="name">Writing<span class="meta">published work</span></span>
+        <span class="arrow">→</span>
+      </a>
+    </li>
+    <li>
+      <a href="/resume">
+        <span class="num">03</span>
+        <span class="name">Resume<span class="meta">full CV</span></span>
+        <span class="arrow">→</span>
+      </a>
+    </li>
+    <li>
+      <a href="/contact">
+        <span class="num">04</span>
+        <span class="name">Contact<span class="meta">how to reach me</span></span>
+        <span class="arrow">→</span>
+      </a>
+    </li>
+  </ul>
 </BaseLayout>

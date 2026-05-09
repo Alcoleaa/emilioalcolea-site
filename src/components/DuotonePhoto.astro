@@ -1,0 +1,45 @@
+---
+/**
+ * DuotonePhoto: rosa-mexicano + aubergine duotone on any portrait.
+ *   - Highlights become rosa (background of figure).
+ *   - Image desaturated + multiplied over rosa.
+ *   - Aubergine layer with mix-blend-mode: lighten lifts shadows.
+ *
+ * Caption format follows Anh's pattern:
+ *   <strong>Right.</strong> Caption text in mono uppercase tracked.
+ */
+export interface Props {
+  src: string;
+  alt: string;
+  caption?: string;
+  /** The bold prefix word, e.g. "Right" or "Above". Rendered with trailing dot. */
+  captionPrefix?: string;
+  width?: number | string;
+  height?: number | string;
+  loading?: 'lazy' | 'eager';
+}
+
+const {
+  src,
+  alt,
+  caption,
+  captionPrefix,
+  width,
+  height,
+  loading = 'lazy',
+} = Astro.props;
+---
+
+<figure class="duotone-photo-wrap">
+  <div class="duotone-photo">
+    <img src={src} alt={alt} width={width} height={height} loading={loading} decoding="async" />
+  </div>
+  {
+    caption && (
+      <figcaption class="duotone-photo-caption">
+        {captionPrefix && <strong>{captionPrefix}.</strong>}
+        {caption}
+      </figcaption>
+    )
+  }
+</figure>

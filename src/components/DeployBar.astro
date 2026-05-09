@@ -1,0 +1,42 @@
+---
+/**
+ * DeployBar: aubergine band at the very bottom of every page.
+ *   Reads CF_PAGES_COMMIT_SHA at build time. Falls back to "local" in dev.
+ *   Date is the build timestamp, rendered in America/Tijuana.
+ *   Tersefy credit on the second line.
+ */
+import { site } from '../data/site';
+
+const rawSha = (import.meta.env.CF_PAGES_COMMIT_SHA ?? '') as string;
+const isLocal = !rawSha;
+const commitShort = isLocal ? 'local' : rawSha.substring(0, 7);
+const commitUrl = isLocal
+  ? site.repo
+  : `${site.repo}/commit/${rawSha}`;
+
+const deployDate = new Date().toLocaleString('en-GB', {
+  day: '2-digit',
+  month: 'short',
+  year: 'numeric',
+  hour: '2-digit',
+  minute: '2-digit',
+  hour12: false,
+  timeZone: 'America/Tijuana',
+});
+---
+
+<aside class="deploy-bar" aria-label="Deployment info">
+  <div>
+    Last deploy: {deployDate} | Commit:
+    {
+      isLocal ? (
+        <span>{commitShort}</span>
+      ) : (
+        <a href={commitUrl} rel="external">{commitShort}</a>
+      )
+    }
+  </div>
+  <div class="deploy-credit">
+    AI Visibility by <a href={site.social.tersefy} rel="external">Tersefy →</a>
+  </div>
+</aside>

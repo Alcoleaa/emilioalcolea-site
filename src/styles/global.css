@@ -100,7 +100,7 @@ ol {
 
 /* ---- Page container helper (centered column) ---------------------- */
 .container {
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
   padding: 0 24px;
 }
@@ -109,4 +109,562 @@ ol {
   .container {
     padding: 0 60px;
   }
+}
+
+/* =====================================================================
+   LAYOUT PATTERNS  (Section 3.5 of BRIEF.md)
+   Reusable across pages. Page-specific sizing tweaks live in *.css.
+   ===================================================================== */
+
+/* ---- Coord strip ---------------------------------------------------- */
+.coord-strip {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--ink);
+  border-top: 2px solid var(--ink);
+  border-bottom: 2px solid var(--ink);
+  padding: 8px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  font-weight: 500;
+}
+
+.coord-strip .dot-pink {
+  color: var(--rosa);
+}
+
+@media (min-width: 768px) {
+  .coord-strip {
+    padding: 8px 60px;
+  }
+}
+
+/* ---- Site nav ------------------------------------------------------- */
+.site-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 24px;
+  padding: 1.25rem 0;
+  border-bottom: 2px solid var(--ink);
+  margin-bottom: 2.5rem;
+}
+
+.site-nav .brand {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.site-nav .brand-last {
+  font-family: var(--font-display-italic);
+  font-style: italic;
+  font-weight: 800;
+  font-variation-settings: "SOFT" 100, "WONK" 100;
+  color: var(--rosa);
+  margin-left: 0.1em;
+}
+
+.site-nav-links {
+  display: flex;
+  gap: 1.5rem;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  margin: 0;
+  padding: 0;
+}
+
+.site-nav-links a {
+  color: var(--ink);
+  text-decoration: none;
+  padding-bottom: 2px;
+  border-bottom: 1.5px solid transparent;
+  transition: border-color 0.15s, color 0.15s;
+}
+
+.site-nav-links a:hover {
+  border-bottom-color: var(--rosa);
+}
+
+.site-nav-links a.current {
+  border-bottom-color: var(--rosa);
+  color: var(--rosa);
+}
+
+@media (max-width: 480px) {
+  .site-nav-links {
+    gap: 0.85rem;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+  }
+}
+
+/* ---- Page label (small block + Bebas) ------------------------------ */
+.page-label {
+  font-family: var(--font-impact);
+  font-size: 28px;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--ink);
+}
+
+.page-label::before {
+  content: '';
+  width: 36px;
+  height: 8px;
+  background: var(--rosa);
+  flex-shrink: 0;
+}
+
+.page-label.ochre::before { background: var(--ochre); }
+.page-label.cobalt::before { background: var(--cobalt); }
+.page-label.green::before { background: var(--green); }
+
+/* ---- Page title (Cormorant 500) ------------------------------------ */
+.page-title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(40px, 7vw, 72px);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  margin-bottom: 2.5rem;
+  color: var(--ink);
+}
+
+/* ---- Hero name (the wonky-italic Alcolea) -------------------------- */
+.hero-name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 0.85;
+  letter-spacing: -0.035em;
+  color: var(--ink);
+  margin: 0 0 1.5rem;
+  font-size: clamp(64px, 13vw, 130px);
+}
+
+.hero-first {
+  display: block;
+  font-style: normal;
+  font-weight: 600;
+}
+
+.hero-last {
+  display: block;
+  font-family: var(--font-display-italic);
+  font-style: italic;
+  font-weight: 800;
+  font-variation-settings: "SOFT" 100, "WONK" 100;
+  color: var(--rosa);
+  margin-left: 0.15em;
+}
+
+/* ---- Tag chips ----------------------------------------------------- */
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 2.5rem;
+}
+
+.chip {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 6px 10px;
+  color: #fff;
+  font-weight: 500;
+}
+
+.chip-rosa { background: var(--rosa); }
+.chip-ochre { background: var(--ochre); color: var(--ink); }
+.chip-cobalt { background: var(--cobalt); }
+.chip-green { background: var(--green); }
+.chip-dark { background: var(--ink); }
+
+/* ---- Tag line (italic, rosa border) -------------------------------- */
+.tag-line {
+  font-family: var(--font-display);
+  font-style: italic;
+  color: var(--ink);
+  line-height: 1.3;
+  border-left: 4px solid var(--rosa);
+  padding-left: 1rem;
+  margin-bottom: 2.5rem;
+  font-size: clamp(18px, 2.5vw, 22px);
+}
+
+/* ---- Flagship card (rosa block + offset ochre shadow) -------------- */
+.flagship {
+  position: relative;
+  margin: 0 0 3rem;
+  isolation: isolate;
+}
+
+.flagship::before {
+  content: '';
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  right: -12px;
+  bottom: -12px;
+  background: var(--ochre);
+  z-index: 0;
+}
+
+.flagship-inner {
+  background: var(--rosa);
+  color: #fff;
+  padding: 1.75rem 1.75rem 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.flagship-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  margin-bottom: 0.6rem;
+  opacity: 0.95;
+  font-weight: 500;
+}
+
+.flagship-stat {
+  font-family: var(--font-impact);
+  font-weight: 400;
+  line-height: 1;
+  margin-bottom: 0.4rem;
+  letter-spacing: 0.01em;
+  font-size: clamp(44px, 8vw, 76px);
+}
+
+.flagship-stat .arrow {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.flagship-stat .pct {
+  background: var(--ink);
+  color: var(--ochre);
+  padding: 0 8px;
+  margin-left: 8px;
+  display: inline-block;
+}
+
+.flagship-desc {
+  font-family: var(--font-body);
+  font-size: 0.85em;
+  line-height: 1.5;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+/* ---- Thesis callout (same layered technique, mono label + italic body) */
+.thesis-callout {
+  position: relative;
+  margin: 2rem 0;
+  isolation: isolate;
+}
+
+.thesis-callout::before {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  right: -8px;
+  bottom: -8px;
+  background: var(--ochre);
+  z-index: 0;
+}
+
+.thesis-callout-inner {
+  background: var(--rosa);
+  color: #fff;
+  padding: 1.25rem 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.thesis-callout-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  margin-bottom: 0.75rem;
+  opacity: 0.9;
+  font-weight: 500;
+}
+
+.thesis-callout-body {
+  font-family: var(--font-display);
+  font-style: italic;
+  line-height: 1.4;
+  font-size: 1.05em;
+}
+
+.thesis-callout-body p + p {
+  margin-top: 0.75rem;
+}
+
+/* ---- Section H2 with accent line ----------------------------------- */
+.h2-rosa,
+.h2-cobalt,
+.h2-ochre,
+.h2-green {
+  font-family: var(--font-impact);
+  font-size: clamp(26px, 4vw, 38px);
+  letter-spacing: 0.08em;
+  margin-top: 3rem;
+  margin-bottom: 1.25rem;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 400;
+}
+
+.h2-rosa::before,
+.h2-cobalt::before,
+.h2-ochre::before,
+.h2-green::before {
+  content: '';
+  width: 36px;
+  height: 8px;
+  background: var(--rosa);
+  flex-shrink: 0;
+}
+
+.h2-cobalt::before { background: var(--cobalt); }
+.h2-ochre::before { background: var(--ochre); }
+.h2-green::before { background: var(--green); }
+
+/* ---- Index-style links list (More section) ------------------------- */
+.more-list {
+  padding: 0;
+  border-top: 2px solid var(--ink);
+  margin: 0;
+}
+
+.more-list li {
+  border-bottom: 1px solid var(--ink);
+  list-style: none;
+}
+
+.more-list a {
+  color: var(--ink);
+  text-decoration: none;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 16px;
+  align-items: baseline;
+  padding: 1.1rem 0.5rem;
+  transition: background 0.15s;
+}
+
+.more-list a:hover {
+  background: rgba(233, 30, 99, 0.06);
+}
+
+.more-list .num {
+  font-family: var(--font-impact);
+  font-size: 1.8em;
+  color: var(--rosa);
+  line-height: 1;
+  min-width: 32px;
+}
+
+.more-list .name {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.5em;
+  line-height: 1;
+}
+
+.more-list .name .meta {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.55em;
+  color: var(--ink-muted);
+  margin-top: 4px;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.more-list .arrow {
+  font-family: var(--font-display);
+  color: var(--rosa);
+  font-size: 1.5em;
+  font-style: italic;
+}
+
+/* ---- Duotone photo (rosa highlights / aubergine shadows) ----------- */
+.duotone-photo-wrap {
+  margin: 2rem 0 2.5rem;
+}
+
+.duotone-photo {
+  position: relative;
+  isolation: isolate;
+  background: var(--rosa);
+  overflow: hidden;
+  margin: 0;
+}
+
+.duotone-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: grayscale(100%) contrast(1.05);
+  mix-blend-mode: multiply;
+}
+
+.duotone-photo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--aubergine);
+  mix-blend-mode: lighten;
+  pointer-events: none;
+}
+
+.duotone-photo-caption {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--ink-muted);
+  margin-top: 0.75rem;
+  line-height: 1.5;
+}
+
+.duotone-photo-caption strong {
+  color: var(--ink);
+  font-weight: 700;
+  margin-right: 0.5rem;
+}
+
+/* Desktop: photo with side caption (Anh-style) */
+@media (min-width: 900px) {
+  .duotone-photo-wrap.with-side-caption {
+    display: grid;
+    grid-template-columns: 1fr 200px;
+    gap: 1.5rem;
+    align-items: end;
+    margin: 2.5rem 0 3rem;
+  }
+  .duotone-photo-wrap.with-side-caption .duotone-photo-caption {
+    margin-top: 0;
+    align-self: end;
+    padding-bottom: 1rem;
+  }
+}
+
+/* ---- Footer line (mono band above deploy bar) ---------------------- */
+.footer-line {
+  margin-top: 3rem;
+  padding: 1.5rem 0 1rem;
+  border-top: 2px solid var(--ink);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--ink);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.footer-line .footer-star {
+  color: var(--rosa);
+  font-size: 14px;
+  letter-spacing: 0.2em;
+}
+
+@media (max-width: 480px) {
+  .footer-line {
+    flex-wrap: wrap;
+    gap: 8px;
+    font-size: 9px;
+  }
+}
+
+/* ---- Deploy bar (aubergine, full bleed) ---------------------------- */
+.deploy-bar {
+  background: var(--aubergine);
+  color: var(--cream);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  padding: 20px 24px;
+  text-align: center;
+  letter-spacing: 0.02em;
+  line-height: 1.5;
+  margin-top: 2rem;
+}
+
+.deploy-bar a {
+  color: var(--cream);
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.deploy-bar a:hover {
+  color: var(--rosa);
+}
+
+.deploy-bar .deploy-credit {
+  margin-top: 8px;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--cream-faded);
+}
+
+.deploy-bar .deploy-credit a {
+  color: var(--rosa);
+  text-decoration: none;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+}
+
+.deploy-bar .deploy-credit a:hover {
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+/* ---- Page shell layout (sticky deploy bar at viewport bottom) ------ */
+.page-shell {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.page-shell > .page-content {
+  flex: 1 0 auto;
+  padding-top: 0;
+  padding-bottom: 1rem;
+}
+
+.page-shell > .page-content > main {
+  padding-top: 1rem;
 }
