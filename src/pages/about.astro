@@ -1,0 +1,94 @@
+---
+/**
+ * About — long-form bio. Per BRIEF Section 4.2.
+ */
+import BaseLayout from '../layouts/BaseLayout.astro';
+import DuotonePhoto from '../components/DuotonePhoto.astro';
+import ThesisCallout from '../components/ThesisCallout.astro';
+
+const description =
+  'Long-form bio of Emilio Alcolea. Marketing operator and Tersefy founder. Cut Cost Per Surgery from $1,300 to $490 at VIDA. Twelve years across medical tourism, government, non-profits, political campaigns, and global brand work.';
+---
+
+<BaseLayout title="About" description={description} path="/about">
+  <div class="coord-strip" slot="coord-strip">
+    <span>About <span class="dot-pink">●</span> Emilio Alcolea</span>
+    <span>Tijuana · MX-US · Est. 2014</span>
+  </div>
+
+  <div class="page-label">
+    <span>/about</span>
+  </div>
+
+  <h1 class="page-title">Marketing operator. Tersefy founder.</h1>
+
+  <DuotonePhoto
+    src="/emilio-portrait.jpg"
+    alt="Emilio Alcolea, portrait, Tijuana 2026."
+    captionPrefix="Right"
+    caption="Portrait, May 2026. Tijuana coastline."
+  />
+
+  <p class="bio-lead">
+    I am a marketing operator. I founded Tersefy in September 2025, a doctor-first AI Visibility firm for medical tourism doctors and practices in Tijuana.
+  </p>
+
+  <div class="prose">
+    <p>
+      The firm exists because I spent three years as Chief Sales & Marketing Officer at VIDA Wellness & Beauty Center, where I cut Cost Per Surgery from $1,300 to $490, a 62% reduction. The methodology behind that cut turned out to be replicable beyond a single clinic. Tersefy is what I am building on top of it.
+    </p>
+  </div>
+
+  <ThesisCallout label="The thesis">
+    <p>
+      Doctors competing on paid ads forever is not a defensible strategy. Content, SEO, AI visibility, and professional reputation are.
+    </p>
+  </ThesisCallout>
+
+  <div class="prose">
+    <p>
+      None of this is anti-ads. I currently manage paid media across multiple client accounts, including individual accounts exceeding $172k USD monthly. Ads should be a lever, not a lifeline.
+    </p>
+    <p>
+      Before Tersefy, I spent twelve years operating across industries that do not usually share the same resume: medical tourism, education non-profits, municipal government, political campaigns, and global brand work. The thread connecting all of them was building revenue systems where they did not exist before.
+    </p>
+  </div>
+
+  <h2 class="h2-rosa">Career</h2>
+
+  <div class="prose">
+    <p>
+      I started in 2014 as Creative Director at Agency Gallo Reyna in Veracruz, leading creative direction and campaigns for Dell, Amazon, Toyota, and Microsoft alongside regional clients. Three years later, I went independent as a consultant. That is where things got interesting.
+    </p>
+    <p>
+      I started running political campaigns at the federal, state, and municipal levels, directing end-to-end operations for candidates that included federal deputies, senators, mayors, and state governors. Multiple winning campaigns across cycles. The political work taught me something corporate marketing never could: how to move messaging fast, under pressure, with consequences that decide elections.
+    </p>
+    <p>
+      In 2017 I joined the City of Boca del Río as Deputy Director of Communication & Public Relations, reporting to the Mayor. Led the launch of Visit Boca, the city's national tourism brand, which drove +270% web traffic growth and grew annual visitation from 2.3M to over 2.7M in the first year, with brand collaborations including Aeroméxico and Hilton. Managed the full municipal account ecosystem: the Mayor's personal channels, government communications, DIF Municipal, the Orquesta Filarmónica de Boca del Río, the Orquestando Armonía children's music program, and every operating dependency, handling 6,000+ daily messages in aggregate.
+    </p>
+    <p>
+      After government, I went non-profit. As Senior Digital Strategy & Communication Manager at UNETE in Mexico City, I designed cross-border digital fundraising strategies that drove +25% growth in online donations, with partnerships including Dell, Bloomberg, and Nacional Monte de Piedad.
+    </p>
+    <p>
+      Then VIDA in 2023. Medical tourism. P&L governance, zero-based budgeting, AI-driven lead routing roadmap, customer experience framework, ICP segmentation across MX and US markets. The Cost Per Surgery cut from $1,300 to $490 while reducing total ad spend by 20%. The lessons of that role became the foundation of Tersefy.
+    </p>
+  </div>
+
+  <h2 class="h2-cobalt">Writing</h2>
+
+  <div class="prose">
+    <p>
+      Every week I publish <a class="cobalt" href="https://alcolea.substack.com">The Insider Dispatch</a>, an English-language newsletter on marketing operations, AI search, and growth strategy for operators in Mexico. Across my career I have produced 6,000+ ghostwritten articles for clients in medical, wellness, lifestyle, marketing, and tech. At Tersefy specifically I have shipped 83+ bilingual articles, a published methodology, and documented case studies.
+    </p>
+  </div>
+
+  <h2 class="h2-ochre">How I work</h2>
+
+  <ul class="how-i-work">
+    <li><span>Bilingual native Spanish, professional English. Based in Tijuana.</span></li>
+    <li><span>Build with Astro, Cloudflare Pages, Make.com, Airtable, Anthropic, OpenAI.</span></li>
+    <li><span>I ship working systems, not decks.</span></li>
+    <li><span>Direct communication, no hedging.</span></li>
+    <li><span>If I tell you a number, I can prove it.</span></li>
+  </ul>
+</BaseLayout>

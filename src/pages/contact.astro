@@ -1,0 +1,63 @@
+---
+/**
+ * Contact — text-only contact info + how-I-work block. Per BRIEF Section 4.5.
+ */
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../data/site';
+
+const description =
+  'How to reach Emilio Alcolea. Email, phone (MX/US), LinkedIn. Available for consulting on AI Visibility / GEO / AEO / SEO for doctors and medical practices, marketing operations, and revenue strategy. Based in Tijuana, Mexico.';
+---
+
+<BaseLayout title="Contact" description={description} path="/contact">
+  <div class="coord-strip" slot="coord-strip">
+    <span>Contact <span class="dot-pink">●</span> Emilio Alcolea</span>
+    <span>Tijuana · MX-US</span>
+  </div>
+
+  <div class="page-label ochre">
+    <span>/contact</span>
+  </div>
+
+  <h1 class="page-title">How to reach me.</h1>
+
+  <p class="bio-lead">
+    Direct channels below. Based in Tijuana, Mexico. Available for consulting on AI Visibility for doctors, marketing operations, and revenue strategy.
+  </p>
+
+  <ul class="contact-list">
+    <li>
+      <span class="label">Email</span>
+      <span class="value"><a href={`mailto:${site.author.email}`}>{site.author.email}</a></span>
+    </li>
+    <li>
+      <span class="label">Phone (MX)</span>
+      <span class="value"><a href={`tel:${site.author.phoneMx.replace(/\s/g, '')}`}>{site.author.phoneMx}</a></span>
+    </li>
+    <li>
+      <span class="label">Phone (US)</span>
+      <span class="value"><a href={`tel:${site.author.phoneUs.replace(/\s/g, '')}`}>{site.author.phoneUs}</a></span>
+    </li>
+    <li>
+      <span class="label">LinkedIn</span>
+      <span class="value"><a href={site.social.linkedin}>linkedin.com/in/emilio-alcolea</a></span>
+    </li>
+    <li>
+      <span class="label">Tersefy</span>
+      <span class="value"><a href={site.social.tersefy}>tersefy.com</a></span>
+    </li>
+    <li>
+      <span class="label">Newsletter</span>
+      <span class="value"><a href={site.social.substack}>The Insider Dispatch · alcolea.substack.com</a></span>
+    </li>
+  </ul>
+
+  <h2 class="h2-rosa">How I work</h2>
+
+  <ul class="how-i-work">
+    <li><span>Direct communication, no hedging.</span></li>
+    <li><span>I ship working systems, not decks.</span></li>
+    <li><span>Bilingual native Spanish, professional English.</span></li>
+    <li><span>If I tell you a number, I can prove it.</span></li>
+  </ul>
+</BaseLayout>

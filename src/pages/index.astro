@@ -1,16 +1,16 @@
 ---
 /**
- * Phase 3 visual smoke test. Real home content lands in Phase 4.
- * This page demos: coord-strip, hero-name, tag-line, chips, flagship,
- * h2 accent, more-list, thesis-callout. Uses BaseLayout so SiteNav,
- * Footer, and DeployBar render too.
+ * Home — entity statement, current focus, navigation hub.
+ * Per BRIEF Section 4.1.
  */
 import BaseLayout from '../layouts/BaseLayout.astro';
-import ThesisCallout from '../components/ThesisCallout.astro';
-import DuotonePhoto from '../components/DuotonePhoto.astro';
+import { site } from '../data/site';
+
+const description =
+  'Marketing operator and Tersefy founder. 12+ years across healthcare, tech, government, and cross-border MX-US markets. Cut Cost Per Surgery from $1,300 to $490 at VIDA Wellness & Beauty.';
 ---
 
-<BaseLayout>
+<BaseLayout description={description} path="/">
   <div class="coord-strip" slot="coord-strip">
     <span>Tijuana <span class="dot-pink">●</span> Mexico · Cross-border MX-US</span>
     <span>32°31′N · 117°02′W · Est. 2014</span>
@@ -22,7 +22,7 @@ import DuotonePhoto from '../components/DuotonePhoto.astro';
   </h1>
 
   <p class="tag-line">
-    Phase 3 component preview. Real content arrives in Phase 4. Verifying patterns render correctly across the design system.
+    Marketing operator and Tersefy founder. Twelve years across markets that don't usually share a resume.
   </p>
 
   <div class="chips">
@@ -30,7 +30,18 @@ import DuotonePhoto from '../components/DuotonePhoto.astro';
     <span class="chip chip-ochre">Tech</span>
     <span class="chip chip-cobalt">Government</span>
     <span class="chip chip-green">Politics</span>
-    <span class="chip chip-dark">MX × US</span>
+    <span class="chip chip-dark">Cross-border MX × US</span>
+    <span class="chip chip-rosa">Founder</span>
+    <span class="chip chip-ochre">Operator</span>
+  </div>
+
+  <div class="prose with-drop-cap">
+    <p>
+      I'm building <a href={site.social.tersefy}>Tersefy</a>, a doctor-first AI Visibility firm for medical tourism doctors and practices in Tijuana. Before Tersefy, twelve years across medical tourism (VIDA Wellness & Beauty), municipal government (City of Boca del Río), education non-profits (UNETE), political campaigns at the federal, state, and municipal levels, and global brand work for Dell, Amazon, Toyota, and Microsoft.
+    </p>
+    <p>
+      The flagship result: at VIDA, Cost Per Surgery dropped from $1,300 to $490, a 62% cut. The methodology behind that cut became Tersefy.
+    </p>
   </div>
 
   <div class="flagship">
@@ -46,46 +57,54 @@ import DuotonePhoto from '../components/DuotonePhoto.astro';
     </div>
   </div>
 
-  <h2 class="h2-cobalt">Thesis</h2>
-  <ThesisCallout label="The thesis">
-    <p>Doctors competing on paid ads forever is not a defensible strategy. Content, SEO, AI visibility, and professional reputation are.</p>
-  </ThesisCallout>
+  <h2 class="h2-rosa">Now</h2>
 
-  <h2 class="h2-ochre">Portrait</h2>
-  <DuotonePhoto
-    src="/emilio-portrait.jpg"
-    alt="Emilio Alcolea, portrait, Tijuana"
-    captionPrefix="Right"
-    caption="Portrait, May 2026. Tijuana coastline."
-  />
+  <div class="now-item">
+    <div class="now-meta">/01 · Building</div>
+    <div class="now-name">Tersefy</div>
+    <div class="now-desc">
+      Doctor-first AI Visibility / GEO / AEO / SEO for medical tourism doctors and practices.
+      <a href={site.social.tersefy}>tersefy.com →</a>
+    </div>
+  </div>
 
-  <h2 class="h2-rosa">More</h2>
+  <div class="now-item cobalt">
+    <div class="now-meta">/02 · Writing</div>
+    <div class="now-name">The Insider Dispatch</div>
+    <div class="now-desc">
+      Weekly English-language newsletter on marketing operations, AI search, and growth strategy for operators in Mexico.
+      <a href={site.social.substack}>alcolea.substack.com →</a>
+    </div>
+  </div>
+
+  <h2 class="h2-ochre">More</h2>
+
   <ul class="more-list">
     <li>
       <a href="/about">
         <span class="num">01</span>
-        <span class="name">About<span class="meta">long-form bio</span></span>
+        <span class="name">About<span class="meta">long-form bio · career arc · how I got here</span></span>
         <span class="arrow">→</span>
       </a>
     </li>
     <li>
       <a href="/writing">
         <span class="num">02</span>
-        <span class="name">Writing<span class="meta">published work</span></span>
+        <span class="name">Writing<span class="meta">published work, case studies, methodology</span></span>
         <span class="arrow">→</span>
       </a>
     </li>
     <li>
       <a href="/resume">
         <span class="num">03</span>
-        <span class="name">Resume<span class="meta">full CV</span></span>
+        <span class="name">Resume<span class="meta">full CV with metrics, certifications, technical skills</span></span>
         <span class="arrow">→</span>
       </a>
     </li>
     <li>
       <a href="/contact">
         <span class="num">04</span>
-        <span class="name">Contact<span class="meta">how to reach me</span></span>
+        <span class="name">Contact<span class="meta">how to reach me · email · linkedin · social</span></span>
         <span class="arrow">→</span>
       </a>
     </li>

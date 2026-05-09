@@ -1,0 +1,64 @@
+---
+/**
+ * Writing index — placeholder cards for active publications and major artifacts.
+ * Per BRIEF Section 4.4. Full archive migration deferred to v2.
+ */
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { site } from '../../data/site';
+
+const description =
+  'Selected writing by Emilio Alcolea: The Insider Dispatch newsletter, Tersefy publications on AI Visibility and medical tourism, The AI Patient Pipeline ebook, plus 6,000+ ghostwritten articles across medical, wellness, lifestyle, marketing, and tech.';
+---
+
+<BaseLayout title="Writing" description={description} path="/writing">
+  <div class="coord-strip" slot="coord-strip">
+    <span>Writing <span class="dot-pink">●</span> Selected work</span>
+    <span>EN · ES · Tijuana</span>
+  </div>
+
+  <div class="page-label cobalt">
+    <span>/writing</span>
+  </div>
+
+  <h1 class="page-title">Selected writing.</h1>
+
+  <p class="bio-lead">
+    I publish weekly at The Insider Dispatch and ship long-form research at Tersefy. Below are the active publications and major artifacts.
+  </p>
+
+  <article class="writing-card">
+    <div class="writing-card-meta">Weekly · English · 2025 → present</div>
+    <h2 class="writing-card-title">The Insider Dispatch</h2>
+    <p class="writing-card-desc">
+      Marketing operations, AI search, and growth strategy for operators in Mexico. Direct, no hedging, named names.
+    </p>
+    <a class="writing-card-link" href={site.social.substack}>alcolea.substack.com →</a>
+  </article>
+
+  <article class="writing-card">
+    <div class="writing-card-meta">Bilingual EN/ES · 83+ articles</div>
+    <h2 class="writing-card-title">Tersefy Publications</h2>
+    <p class="writing-card-desc">
+      AI Visibility, GEO, AEO, and medical tourism marketing for doctors and medical practices. Includes the published methodology and documented case studies.
+    </p>
+    <a class="writing-card-link" href="https://tersefy.com/blog">tersefy.com/blog →</a>
+    <a class="writing-card-link" href="https://tersefy.com/methodology">methodology →</a>
+    <a class="writing-card-link" href="https://tersefy.com/case-studies">case studies →</a>
+  </article>
+
+  <article class="writing-card">
+    <div class="writing-card-meta">2024 · Ebook</div>
+    <h2 class="writing-card-title">The AI Patient Pipeline</h2>
+    <p class="writing-card-desc">
+      AI search visibility and patient acquisition for doctors and dental practices.
+    </p>
+  </article>
+
+  <article class="writing-card">
+    <div class="writing-card-meta">6,000+ articles · medical, wellness, lifestyle, marketing, tech</div>
+    <h2 class="writing-card-title">Ghostwriting & editorial production</h2>
+    <p class="writing-card-desc">
+      Long-running ghostwriting practice across client publications. Bylines confidential.
+    </p>
+  </article>
+</BaseLayout>

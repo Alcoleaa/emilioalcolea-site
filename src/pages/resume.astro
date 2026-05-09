@@ -1,0 +1,411 @@
+---
+/**
+ * Resume — structured CV. Per BRIEF Section 4.3.
+ * Adds a ProfilePage JSON-LD block alongside the default Person schema.
+ */
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../data/site';
+
+const description =
+  'Full resume of Emilio Alcolea. 12+ years across healthcare, tech, government, political campaigns, and global brand work for Dell, Amazon, Toyota, Microsoft. Tersefy founder. Former CSMO at VIDA Wellness & Beauty.';
+
+const profilePageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfilePage',
+  url: `${site.url}/resume`,
+  name: 'Emilio Alcolea · Resume',
+  description,
+  mainEntity: {
+    '@type': 'Person',
+    name: site.author.name,
+    url: site.url,
+    email: `mailto:${site.author.email}`,
+    telephone: site.author.phoneMx,
+    image: new URL(site.portrait, site.url).toString(),
+    sameAs: [site.social.linkedin, site.social.substack, site.social.tersefy],
+    jobTitle: 'Founder',
+    worksFor: { '@type': 'Organization', name: 'Tersefy', url: site.social.tersefy },
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: site.author.city,
+      addressRegion: site.author.region,
+      addressCountry: site.author.country,
+    },
+    alumniOf: { '@type': 'EducationalOrganization', name: 'Tec Milenio' },
+    knowsAbout: site.knowsAbout,
+    knowsLanguage: site.knowsLanguage,
+  },
+};
+---
+
+<BaseLayout title="Resume" description={description} path="/resume" schema={[profilePageSchema]}>
+  <div class="coord-strip" slot="coord-strip">
+    <span>Resume <span class="dot-pink">●</span> Emilio Alcolea</span>
+    <span>egalcolea@gmail.com · +52 663 441 2590</span>
+  </div>
+
+  <div class="page-label">
+    <span>/resume</span>
+  </div>
+
+  <h1 class="page-title">Emilio Alcolea</h1>
+
+  <p class="bio-lead">
+    Marketing operator and Tersefy founder. 12+ years across healthcare, tech, government, and cross-border MX-US markets.
+  </p>
+
+  <div class="resume-contact">
+    <a href={`mailto:${site.author.email}`}>{site.author.email}</a>
+    <span class="sep">·</span>
+    <a href={`tel:${site.author.phoneMx.replace(/\s/g, '')}`}>{site.author.phoneMx}</a>
+    <span class="sep">·</span>
+    <a href={`tel:${site.author.phoneUs.replace(/\s/g, '')}`}>{site.author.phoneUs}</a>
+    <span class="sep">·</span>
+    <a href={site.social.linkedin}>linkedin.com/in/emilio-alcolea</a>
+  </div>
+
+  <h2 class="resume-h2">Executive summary</h2>
+  <div class="prose">
+    <p>
+      Marketing operator and Tersefy founder with 12+ years across healthcare, tech, government, political communications, and cross-border MX-US markets. Currently building Tersefy, a doctor-first AI Visibility / GEO / AEO / SEO firm for medical tourism doctors and practices in Tijuana, based on the acquisition methodology developed as Chief Sales & Marketing Officer at VIDA Wellness & Beauty Center, where Cost Per Surgery was reduced from $1,300 to $490 (-62%). Career includes senior roles in medical tourism, ed-tech non-profit, municipal government, political campaigns, and global brand campaigns for Dell, Amazon, Toyota, and Microsoft. Author of The Insider Dispatch newsletter and 6,000+ ghostwritten articles across medical, wellness, lifestyle, marketing, and tech verticals.
+    </p>
+  </div>
+
+  <h2 class="resume-h2 cobalt">Areas of expertise</h2>
+  <ul class="resume-areas">
+    <li class="resume-area">
+      <div class="resume-area-name">AI Search & Visibility</div>
+      <div class="resume-area-desc">
+        Generative Engine Optimization (GEO), Answer Engine Optimization (AEO), LLM presence analysis, entity building, FAQPage schema, JSON-LD structured data, AI marketing automation.
+      </div>
+    </li>
+    <li class="resume-area">
+      <div class="resume-area-name">Marketing & Revenue Operations</div>
+      <div class="resume-area-desc">
+        Performance marketing, paid media, P&L management, zero-based budgeting, ICP segmentation, pricing strategy, customer experience design, conversion optimization, CAC reduction.
+      </div>
+    </li>
+    <li class="resume-area">
+      <div class="resume-area-name">Content & Brand</div>
+      <div class="resume-area-desc">
+        Brand strategy, content systems, technical SEO, editorial production, cross-border bilingual marketing (MX-US), multi-account communications, crisis communications.
+      </div>
+    </li>
+    <li class="resume-area">
+      <div class="resume-area-name">Political & Government Communications</div>
+      <div class="resume-area-desc">
+        Political campaign strategy, election-day field operations, opposition research, executive communications, press relations, public sector positioning.
+      </div>
+    </li>
+  </ul>
+
+  <h2 class="resume-h2 ochre">Professional experience</h2>
+
+  <article class="resume-job">
+    <header class="resume-job-header">
+      <div class="resume-job-co">Tersefy<span class="resume-job-loc">Tijuana, Mexico</span></div>
+      <div class="resume-job-role">Founder</div>
+      <div class="resume-job-dates">Sep 2025 · Present</div>
+    </header>
+    <p class="resume-job-summary">
+      Doctor-first AI Visibility / GEO / AEO / SEO firm focused on cross-border MX-US patient acquisition for doctors, specialists, and medical practices.
+    </p>
+    <ul class="resume-bullets">
+      <li>
+        <span class="resume-bullets-label">Market positioning</span>
+        <span class="resume-bullets-text">
+          Founded the firm as a specialized boutique positioned at the intersection of AI search, SEO, content, professional reputation, and revenue operations, serving plastic surgeons, bariatric specialists, dentists, aesthetic physicians, and wellness practitioners who depend on cross-border MX-US patients.
+        </span>
+      </li>
+      <li>
+        <span class="resume-bullets-label">Proprietary methodology</span>
+        <span class="resume-bullets-text">
+          Packaged the documented CAC reduction at VIDA Wellness & Beauty (from $1,300 to $490, -62%) into a replicable GEO/AEO/SEO framework for doctors and medical practices, combining technical SEO, semantic content, topical authority, FAQ architecture, credential and reputation signals, and entity building.
+        </span>
+      </li>
+      <li>
+        <span class="resume-bullets-label">Service architecture</span>
+        <span class="resume-bullets-text">
+          Designed the full service portfolio from scratch, including AI visibility audits, LLM presence analysis (ChatGPT, Claude, Perplexity, Gemini, Google AI Overviews), service page optimization, content systems, and entity-building frameworks tailored to individual doctors, specialists, and medical practices.
+        </span>
+      </li>
+      <li>
+        <span class="resume-bullets-label">Production AI system</span>
+        <span class="resume-bullets-text">
+          Built proprietary AI Closer System operating in production at a Tijuana medical practice, supporting 18,000+ monthly inbound patient inquiries across 5 specialists with sub-minute first-response, structured follow-up, and qualification handoff to human coordinators, resulting in measurable response-time reduction versus baseline.
+        </span>
+      </li>
+      <li>
+        <span class="resume-bullets-label">Brand & commercial positioning</span>
+        <span class="resume-bullets-text">
+          Defined ICP, value proposition, differentiators, sales narrative, and commercial materials for doctors, specialists, and practice directors, translating technical concepts (LLM-readability, topical authority, AI Overviews, professional reputation) into business outcomes (CAC, patient acquisition, conversion, pipeline).
+        </span>
+      </li>
+      <li>
+        <span class="resume-bullets-label">Content systems</span>
+        <span class="resume-bullets-text">
+          Developed bilingual content systems (EN/ES) oriented to real patient questions, treatment comparisons, doctor selection criteria, credentials, and trust signals across high-intent medical queries from US-based patients evaluating Mexican specialists.
+        </span>
+      </li>
+      <li>
+        <span class="resume-bullets-label">Acquisition thesis</span>
+        <span class="resume-bullets-text">
+          Built the firm on the thesis that doctors and medical practices must reduce dependence on paid acquisition by investing in content, SEO, AI visibility, professional reputation, and authority as long-term business assets rather than rented attention.
+        </span>
+      </li>
+    </ul>
+  </article>
+
+  <article class="resume-job">
+    <header class="resume-job-header">
+      <div class="resume-job-co">VIDA Wellness & Beauty<span class="resume-job-loc">Tijuana, Mexico</span></div>
+      <div class="resume-job-role">Chief Sales and Marketing Officer (CSMO)</div>
+      <div class="resume-job-dates">Jan 2023 · Apr 2026</div>
+    </header>
+    <p class="resume-job-summary">
+      Led growth strategy at a multi-specialty medical tourism provider serving primarily US patients, overseeing marketing, sales, and customer experience departments.
+    </p>
+    <ul class="resume-bullets">
+      <li>
+        <span class="resume-bullets-label">P&L & financial strategy</span>
+        <span class="resume-bullets-text">
+          Established P&L governance and a zero-based budgeting model, defining strict ROI and payback thresholds per channel. Implemented scenario planning to reallocate ad spend dynamically based on real-time performance.
+        </span>
+      </li>
+      <li>
+        <span class="resume-bullets-label">CAC reduction & efficiency</span>
+        <span class="resume-bullets-text">
+          Defined and executed the US market growth strategy, slashing Cost Per Surgery (CAC) from $1,300 to $490 (-62%) while reducing overall ad spend by 20%, maintaining volume and increasing profitability.
+        </span>
+      </li>
+      <li>
+        <span class="resume-bullets-label">AI & automation strategy</span>
+        <span class="resume-bullets-text">
+          Led the strategic definition and operational requirements for an AI-driven lead routing and qualification roadmap, defining response-time SLAs (&lt;2 hours business hours, &lt;12 hours off-hours), patient experience standards, and acceptance criteria. This work informed the production AI Closer System later built and operated through Tersefy.
+        </span>
+      </li>
+      <li>
+        <span class="resume-bullets-label">Revenue architecture</span>
+        <span class="resume-bullets-text">
+          Designed ICP segmentation and pricing/packaging architecture for MX and US markets. Integrated sales forecasting with S&OP (medical capacity) to ensure predictable revenue growth.
+        </span>
+      </li>
+      <li>
+        <span class="resume-bullets-label">Tech ecosystem</span>
+        <span class="resume-bullets-text">
+          Directed the development of "VIDA Tool," a unified data platform ensuring end-to-end traceability and compliance across MX and US operations, integrating partners and tech stack to unify sales and marketing data.
+        </span>
+      </li>
+      <li>
+        <span class="resume-bullets-label">Customer experience</span>
+        <span class="resume-bullets-text">
+          Implemented an end-to-end CX framework (Journey Mapping, NPS, Closed-loop VoC) and launched a loyalty/referral program that increased LTV and repeat purchase rates.
+        </span>
+      </li>
+    </ul>
+  </article>
+
+  <article class="resume-job">
+    <header class="resume-job-header">
+      <div class="resume-job-co">UNETE<span class="resume-job-loc">Mexico City</span></div>
+      <div class="resume-job-role">Senior Digital Strategy & Communication Manager</div>
+      <div class="resume-job-dates">May 2022 · Jun 2023</div>
+    </header>
+    <p class="resume-job-summary">
+      Led digital strategy and communications at a Mexican education technology non-profit serving public schools, with cross-border fundraising operations between Mexico and the US.
+    </p>
+    <ul class="resume-bullets">
+      <li>
+        <span class="resume-bullets-label">Fundraising growth</span>
+        <span class="resume-bullets-text">
+          Designed digital fundraising strategies across Mexico and the US, driving a +25% increase in online donations.
+        </span>
+      </li>
+      <li>
+        <span class="resume-bullets-label">Strategic partnerships</span>
+        <span class="resume-bullets-text">
+          Consolidated partnerships with global players including Dell, Bloomberg, and Nacional Monte de Piedad, and activated cross-border donation programs for migrant communities.
+        </span>
+      </li>
+      <li>
+        <span class="resume-bullets-label">Performance marketing</span>
+        <span class="resume-bullets-text">
+          Executed binational performance campaigns increasing qualified traffic +10%, and optimized the institutional website to deliver +35% organic visits and a +40% conversion rate increase.
+        </span>
+      </li>
+    </ul>
+  </article>
+
+  <article class="resume-job">
+    <header class="resume-job-header">
+      <div class="resume-job-co">City of Boca del Río<span class="resume-job-loc">Boca del Río, Veracruz</span></div>
+      <div class="resume-job-role">Deputy Director of Communication & Public Relations</div>
+      <div class="resume-job-dates">Nov 2017 · Dec 2021</div>
+    </header>
+    <p class="resume-job-summary">
+      Led digital strategy, public relations, and executive communications for a Mexican municipal government, reporting directly to the City Mayor.
+    </p>
+    <ul class="resume-bullets">
+      <li>
+        <span class="resume-bullets-label">Visit Boca city brand</span>
+        <span class="resume-bullets-text">
+          Led communications and digital strategy for the launch of Visit Boca, the city's national tourism brand, driving +270% growth in web traffic and increasing annual visitation from 2.3M to over 2.7M in the first year, with brand collaborations including Aeroméxico and Hilton.
+        </span>
+      </li>
+      <li>
+        <span class="resume-bullets-label">Multi-account operations</span>
+        <span class="resume-bullets-text">
+          Directed digital strategy and content across the full municipal account ecosystem, including the Mayor's personal channels, government communications, DIF Municipal, the Orquesta Filarmónica de Boca del Río, the Orquestando Armonía children's music education program, and every operating dependency (Tránsito Municipal, Fomento Deportivo, and others), handling 6,000+ daily messages in aggregate.
+        </span>
+      </li>
+      <li>
+        <span class="resume-bullets-label">Executive & press operations</span>
+        <span class="resume-bullets-text">
+          Managed press relations, official bulletins, the Mayor's speeches, public presentations, and interviews. Directed crisis communications and media relations to strengthen institutional reputation, achieving a +60% increase in engagement across channels.
+        </span>
+      </li>
+    </ul>
+  </article>
+
+  <article class="resume-job">
+    <header class="resume-job-header">
+      <div class="resume-job-co">Principal Consultant<span class="resume-job-loc">Mexico</span></div>
+      <div class="resume-job-role">Digital Strategy & Communications</div>
+      <div class="resume-job-dates">Jan 2017 · Dec 2021</div>
+    </header>
+    <p class="resume-job-summary">
+      Independent consulting practice across corporate and political sectors, run concurrently with full-time roles.
+    </p>
+    <ul class="resume-bullets">
+      <li>
+        <span class="resume-bullets-label">Diversified portfolio</span>
+        <span class="resume-bullets-text">
+          Consulted for 10+ clients across Tech (SAP ecosystem), Real Estate, and Automotive sectors, implementing digital acquisition funnels for high-ticket B2B and B2C products.
+        </span>
+      </li>
+      <li>
+        <span class="resume-bullets-label">Political strategy</span>
+        <span class="resume-bullets-text">
+          Directed end-to-end campaign operations for candidates at federal, state, and municipal levels, including federal deputies, senators, mayors, and state governors. Scope covered marketing strategy, messaging, opposition research, data-driven narratives, and election-day field operations, with multiple winning campaigns across cycles.
+        </span>
+      </li>
+    </ul>
+  </article>
+
+  <article class="resume-job">
+    <header class="resume-job-header">
+      <div class="resume-job-co">Agency Gallo Reyna<span class="resume-job-loc">Veracruz, Mexico</span></div>
+      <div class="resume-job-role">Creative Director</div>
+      <div class="resume-job-dates">Jan 2014 · Sep 2017</div>
+    </header>
+    <p class="resume-job-summary">
+      Led creative direction and agency operations at a regional creative agency, serving global enterprise brands alongside regional clients.
+    </p>
+    <ul class="resume-bullets">
+      <li>
+        <span class="resume-bullets-label">Brand clients</span>
+        <span class="resume-bullets-text">
+          Led campaigns and creative direction for global brands including Dell, Amazon, Toyota, and Microsoft.
+        </span>
+      </li>
+      <li>
+        <span class="resume-bullets-label">Esports tournament</span>
+        <span class="resume-bullets-text">
+          Organized a major Esports tournament with sponsors including Logitech and HyperX.
+        </span>
+      </li>
+      <li>
+        <span class="resume-bullets-label">Agency growth</span>
+        <span class="resume-bullets-text">
+          Managed agency P&L, negotiating with suppliers and leading a 15-person creative team, increasing profits by 30%.
+        </span>
+      </li>
+    </ul>
+  </article>
+
+  <h2 class="resume-h2 green">Selected writing & publications</h2>
+
+  <div class="resume-pub">
+    <div class="resume-pub-title">The Insider Dispatch</div>
+    <div class="resume-pub-meta">2025 · Present · Weekly · English</div>
+    <p class="resume-pub-desc">
+      Independent weekly newsletter on marketing operations, AI search, and growth strategy for operators in Mexico.
+    </p>
+    <a href={site.social.substack}>alcolea.substack.com →</a>
+  </div>
+
+  <div class="resume-pub">
+    <div class="resume-pub-title">Tersefy Publications</div>
+    <div class="resume-pub-meta">2025 · Present · Bilingual EN/ES · 83+ articles</div>
+    <p class="resume-pub-desc">
+      83+ bilingual articles, methodology framework, and documented case studies on AI Visibility, GEO, AEO, and medical tourism marketing for doctors and medical practices.
+    </p>
+    <a href="https://tersefy.com/blog">Blog (EN) →</a>
+    <a href="https://tersefy.com/es/blog">Blog (ES) →</a>
+    <a href="https://tersefy.com/methodology">Methodology →</a>
+    <a href="https://tersefy.com/case-studies">Case studies →</a>
+  </div>
+
+  <div class="resume-pub">
+    <div class="resume-pub-title">The AI Patient Pipeline</div>
+    <div class="resume-pub-meta">2024 · Ebook</div>
+    <p class="resume-pub-desc">
+      Ebook on AI search visibility and patient acquisition for doctors and dental practices.
+    </p>
+  </div>
+
+  <div class="resume-pub">
+    <div class="resume-pub-title">Ghostwriting & editorial production</div>
+    <div class="resume-pub-meta">6,000+ articles · medical, wellness, lifestyle, marketing, tech</div>
+    <p class="resume-pub-desc">
+      Bylines confidential.
+    </p>
+  </div>
+
+  <h2 class="resume-h2 cobalt">Education</h2>
+  <ul class="resume-flat-list">
+    <li>Bachelor of International Business, Tec Milenio (2015)</li>
+  </ul>
+
+  <h2 class="resume-h2 ochre">Certifications</h2>
+  <ul class="resume-flat-list">
+    <li>Anthropic Claude Developer Certification</li>
+    <li>OpenAI Academy</li>
+    <li>Google Analytics 4 (Official Certification)</li>
+    <li>Google Search Ads 360 (2023)</li>
+    <li>Google Ads: Video, Display & Search (2022)</li>
+    <li>Meta Blueprint: Marketing & Advertising</li>
+  </ul>
+
+  <h2 class="resume-h2">Technical skills & tools</h2>
+  <ul class="resume-skills">
+    <li>
+      <strong>Analysis & data</strong>
+      <span>Python, SQL, Google Analytics (GA4), Power BI, A/B Testing, Excel.</span>
+    </li>
+    <li>
+      <strong>CRM & automation</strong>
+      <span>Salesforce, HubSpot, ActiveCampaign, Marketo, Make.com, Airtable, n8n.</span>
+    </li>
+    <li>
+      <strong>Paid media & SEO</strong>
+      <span>Google Ads, Meta Ads, DV360, Ahrefs, Semrush.</span>
+    </li>
+    <li>
+      <strong>AI & GEO</strong>
+      <span>Anthropic API, OpenAI API, prompt engineering, JSON-LD structured data, FAQPage schema, llms.txt directives, LLM presence analysis (ChatGPT, Claude, Perplexity, Gemini, Google AI Overviews).</span>
+    </li>
+    <li>
+      <strong>Web & development</strong>
+      <span>HTML/CSS, Astro, Cloudflare Pages, GitHub.</span>
+    </li>
+    <li>
+      <strong>Project management</strong>
+      <span>Agile/Scrum, Asana, Jira, Monday, Slack.</span>
+    </li>
+    <li>
+      <strong>Languages</strong>
+      <span>Spanish (Native), English (C1 / Full Professional Proficiency).</span>
+    </li>
+  </ul>
+</BaseLayout>
