@@ -102,6 +102,12 @@ const personSchema = {
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={ogImageAbs} />
     <meta property="og:locale" content={lang === 'es' ? 'es_MX' : 'en_US'} />
+    {ogType === 'profile' && (
+      <>
+        <meta property="profile:first_name" content="Emilio" />
+        <meta property="profile:last_name" content="Alcolea" />
+      </>
+    )}
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={fullTitle} />
