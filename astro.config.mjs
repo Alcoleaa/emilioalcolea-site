@@ -6,6 +6,6 @@ export default defineConfig({
   site: 'https://emilioalcolea.com',
   trailingSlash: 'never',
   build: {
-    format: 'directory',
+    format: 'file',
   },
 });
