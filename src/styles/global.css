@@ -824,6 +824,36 @@ ol {
   line-height: 0.5;
 }
 
+/* ---- FAQ block (Common questions on /about) ------------------------ */
+.faq {
+  margin: 1.25rem 0 0;
+  border-top: 1px solid var(--rule);
+  padding: 0;
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--rule);
+  padding: 1.25rem 0.25rem;
+}
+
+.faq-q {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0 0 0.5rem;
+  line-height: 1.35;
+}
+
+.faq-a {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.55;
+  margin: 0;
+}
+
 /* ---- Writing card (for /writing index) ----------------------------- */
 .writing-card {
   border: 2px solid var(--ink);

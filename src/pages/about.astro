@@ -8,9 +8,46 @@ import ThesisCallout from '../components/ThesisCallout.astro';
 
 const description =
   'Long-form bio of Emilio Alcolea. Marketing operator and Tersefy founder. Cut Cost Per Surgery from $1,300 to $490 at VIDA. Twelve years across medical tourism, government, non-profits, political campaigns, and global brand work.';
+
+const faq = [
+  {
+    q: 'Who is Emilio Alcolea?',
+    a: 'Marketing operator and founder of Tersefy. Built Tersefy in September 2025 in Tijuana, Mexico, after twelve years operating across medical tourism, education non-profits, municipal government, political campaigns, and global brand work for Dell, Amazon, Toyota, and Microsoft.',
+  },
+  {
+    q: 'What is Tersefy?',
+    a: 'A doctor-first AI Visibility firm for medical tourism doctors and practices in Tijuana. Tersefy applies a documented Generative Engine Optimization, Answer Engine Optimization, and SEO methodology to make doctors discoverable in ChatGPT, Claude, Perplexity, Gemini, and Google AI Overviews. Built on the acquisition methodology developed at VIDA Wellness & Beauty Center.',
+  },
+  {
+    q: 'What does Emilio Alcolea consult on?',
+    a: 'AI Visibility and GEO, AEO, and SEO for doctors and medical practices. Marketing operations and revenue operations for service businesses with cross-border MX-US dynamics. Available for consulting engagements through Tersefy.',
+  },
+  {
+    q: 'Where is Emilio Alcolea based?',
+    a: 'Tijuana, Baja California, Mexico. Operating across the cross-border MX-US market. Bilingual native Spanish, professional English.',
+  },
+  {
+    q: 'What is the documented result behind Tersefy?',
+    a: 'At VIDA Wellness & Beauty Center, Cost Per Surgery dropped from $1,300 to $490, a 62% reduction, while reducing total ad spend by 20%. The methodology behind that cut is what Tersefy now applies to other doctors and medical practices.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  '@id': 'https://emilioalcolea.com/about/#faq',
+  mainEntity: faq.map((item) => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: item.a,
+    },
+  })),
+};
 ---
 
-<BaseLayout title="About" description={description} path="/about">
+<BaseLayout title="About" description={description} path="/about" schema={[faqSchema]}>
   <div class="coord-strip" slot="coord-strip">
     <span>About <span class="dot-pink">●</span> Emilio Alcolea</span>
     <span>Tijuana · MX-US · Est. 2014</span>
@@ -91,4 +128,15 @@ const description =
     <li><span>Direct communication, no hedging.</span></li>
     <li><span>If I tell you a number, I can prove it.</span></li>
   </ul>
+
+  <h2 class="h2-green" id="faq">Common questions</h2>
+
+  <dl class="faq">
+    {faq.map((item) => (
+      <div class="faq-item">
+        <dt class="faq-q">{item.q}</dt>
+        <dd class="faq-a">{item.a}</dd>
+      </div>
+    ))}
+  </dl>
 </BaseLayout>
