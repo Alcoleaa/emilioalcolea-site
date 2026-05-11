@@ -12,6 +12,7 @@
   /* ---- Color: Mexican palette accents ------------------------------ */
   --rosa: #E91E63;
   --rosa-soft: #F48FB1;
+  --rosa-deep: #C1185B;
   --ochre: #D4A017;
   --cobalt: #1E5FBC;
   --green: #1B5E20;
@@ -289,7 +290,7 @@ ol {
   font-weight: 500;
 }
 
-.chip-rosa { background: var(--rosa); }
+.chip-rosa { background: var(--rosa-deep); }
 .chip-ochre { background: var(--ochre); color: var(--ink); }
 .chip-cobalt { background: var(--cobalt); }
 .chip-green { background: var(--green); }
@@ -867,7 +868,7 @@ ol {
   font-size: 10px;
   text-transform: uppercase;
   letter-spacing: 0.18em;
-  color: var(--rosa);
+  color: var(--rosa-deep);
   margin-bottom: 0.6rem;
   font-weight: 500;
 }
@@ -894,9 +895,9 @@ ol {
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.14em;
-  color: var(--rosa);
+  color: var(--rosa-deep);
   text-decoration: none;
-  border-bottom: 1.5px solid var(--rosa);
+  border-bottom: 1.5px solid var(--rosa-deep);
   font-weight: 500;
 }
 
