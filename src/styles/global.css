@@ -11,6 +11,7 @@
 
   /* ---- Color: Mexican palette accents ------------------------------ */
   --rosa: #E91E63;
+  --rosa-soft: #F48FB1;
   --ochre: #D4A017;
   --cobalt: #1E5FBC;
   --green: #1B5E20;
@@ -521,7 +522,7 @@ ol {
 .duotone-photo {
   position: relative;
   isolation: isolate;
-  background: var(--rosa);
+  background: var(--rosa-soft);
   overflow: hidden;
   margin: 0;
 }
@@ -530,7 +531,7 @@ ol {
   display: block;
   width: 100%;
   height: auto;
-  filter: grayscale(100%) contrast(1.05);
+  filter: grayscale(100%) brightness(1.15) contrast(0.95);
   mix-blend-mode: multiply;
 }
 
