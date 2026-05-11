@@ -1,0 +1,62 @@
+name: IndexNow ping
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Wait for Cloudflare Pages deploy
+        run: |
+          set -euo pipefail
+          for i in $(seq 1 60); do
+            sha=$(curl -fsSL https://emilioalcolea.com/ \
+              | grep -oE 'commit/[a-f0-9]{40}' \
+              | head -1 \
+              | cut -d/ -f2 || true)
+            if [ "${sha:0:7}" = "${GITHUB_SHA:0:7}" ]; then
+              echo "Live commit matches: $sha"
+              exit 0
+            fi
+            echo "Attempt $i: live=${sha:0:7} expected=${GITHUB_SHA:0:7}"
+            sleep 10
+          done
+          echo "Deploy did not propagate within 10 minutes" >&2
+          exit 1
+
+      - name: Build URL list from sitemap
+        id: urls
+        run: |
+          set -euo pipefail
+          urls=$(curl -fsSL https://emilioalcolea.com/sitemap.xml \
+            | grep -oE 'https://emilioalcolea\.com[^<]*' \
+            | sort -u \
+            | python3 -c 'import sys, json; print(json.dumps([u.strip() for u in sys.stdin if u.strip()]))')
+          echo "Submitting:"
+          echo "$urls" | python3 -m json.tool
+          echo "urls=$urls" >> "$GITHUB_OUTPUT"
+
+      - name: POST to IndexNow
+        env:
+          URLS: ${{ steps.urls.outputs.urls }}
+        run: |
+          set -euo pipefail
+          payload=$(python3 -c '
+          import json, os
+          urls = json.loads(os.environ["URLS"])
+          print(json.dumps({
+            "host": "emilioalcolea.com",
+            "key": "bdc80314466c46f39f64bb2243cb313f",
+            "keyLocation": "https://emilioalcolea.com/bdc80314466c46f39f64bb2243cb313f.txt",
+            "urlList": urls
+          }))')
+          code=$(curl -s -o /tmp/body -w "%{http_code}" -X POST \
+            "https://api.indexnow.org/indexnow" \
+            -H "Content-Type: application/json; charset=utf-8" \
+            -d "$payload")
+          echo "HTTP $code"
+          cat /tmp/body || true
+          test "$code" = "200" -o "$code" = "202"
