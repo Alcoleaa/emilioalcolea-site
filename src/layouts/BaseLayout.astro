@@ -54,6 +54,16 @@ const personSchema = {
     name: 'Tersefy',
     url: site.social.tersefy,
   },
+  hasOccupation: {
+    '@type': 'Occupation',
+    name: 'Marketing Operator and Founder',
+    occupationLocation: {
+      '@type': 'City',
+      name: 'Tijuana',
+    },
+    skills:
+      'AI Visibility, Generative Engine Optimization, Answer Engine Optimization, SEO, Marketing Operations, Revenue Operations, Cross-border Marketing',
+  },
   address: {
     '@type': 'PostalAddress',
     addressLocality: site.author.city,
