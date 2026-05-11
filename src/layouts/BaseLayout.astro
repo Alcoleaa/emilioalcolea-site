@@ -44,6 +44,7 @@ const ogImageAbs = new URL(ogImage, site.url).toString();
 const personSchema = {
   '@context': 'https://schema.org',
   '@type': 'Person',
+  '@id': 'https://emilioalcolea.com/#person',
   name: site.author.name,
   url: site.url,
   image: new URL(site.portrait, site.url).toString(),
@@ -51,6 +52,7 @@ const personSchema = {
   jobTitle: 'Founder',
   worksFor: {
     '@type': 'Organization',
+    '@id': 'https://tersefy.com/#organization',
     name: 'Tersefy',
     url: site.social.tersefy,
   },
