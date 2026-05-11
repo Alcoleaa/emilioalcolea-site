@@ -145,6 +145,19 @@ const personSchema = {
         <script type="application/ld+json" set:html={JSON.stringify(block)} />
       ))
     }
+
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
+      window.gtag('js', new Date());
+      window.gtag('config', 'G-9HC1ST057L');
+      window.addEventListener('load', function () {
+        var s = document.createElement('script');
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-9HC1ST057L';
+        s.async = true;
+        document.head.appendChild(s);
+      });
+    </script>
   </head>
   <body>
     <div class="page-shell">
