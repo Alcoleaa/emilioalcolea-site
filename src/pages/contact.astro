@@ -28,8 +28,12 @@ import { site } from '../data/site';
       <span class="value"><a href={`mailto:${site.author.email}`}>{site.author.email}</a></span>
     </li>
     <li>
+      <span class="label">Phone · SMS</span>
+      <span class="value"><a href={`tel:${site.author.phoneE164}`}>{site.author.phone}</a></span>
+    </li>
+    <li>
       <span class="label">WhatsApp</span>
-      <span class="value"><a href={`https://wa.me/${site.author.whatsappE164}`}>{site.author.whatsapp}</a></span>
+      <span class="value"><a href={`https://wa.me/${site.author.phoneE164.replace('+', '')}`}>{site.author.phone}</a></span>
     </li>
     <li>
       <span class="label">LinkedIn</span>
