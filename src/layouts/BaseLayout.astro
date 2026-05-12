@@ -9,13 +9,15 @@
  * Pages that need a coord-strip render it in the optional `coord-strip` slot
  * (rendered above the nav, full-bleed).
  */
-import { site } from '../data/site';
+import { site, pageMeta, type PageKey } from '../data/site';
 import SiteNav from '../components/SiteNav.astro';
 import Footer from '../components/Footer.astro';
 import DeployBar from '../components/DeployBar.astro';
 import '../styles/global.css';
 
 export interface Props {
+  /** Page key into pageMeta. When set, title/description/ogType/ogImage default from pageMeta[page]. */
+  page?: PageKey;
   title?: string;
   description?: string;
   /** Path-only canonical, e.g. "/about". Joined with site.url. */
@@ -28,18 +30,27 @@ export interface Props {
 }
 
 const {
+  page,
   title,
-  description = site.defaultDescription,
+  description,
   path = Astro.url.pathname,
-  ogImage = site.ogImage,
-  ogType = 'website',
+  ogImage,
+  ogType,
   schema = [],
   lang = site.locale,
 } = Astro.props;
 
-const fullTitle = title ? `${title}${site.titleSuffix}` : site.defaultTitle;
+const meta = page ? pageMeta[page] : null;
+const resolvedTitle = title
+  ? `${title}${site.titleSuffix}`
+  : meta
+    ? meta.title
+    : site.defaultTitle;
+const resolvedDescription = description ?? meta?.description ?? site.defaultDescription;
+const resolvedOgImage = ogImage ?? meta?.ogImage ?? site.ogImage;
+const resolvedOgType: 'website' | 'article' | 'profile' = ogType ?? meta?.ogType ?? 'website';
 const canonical = new URL(path === '/' ? '/' : path.replace(/\/$/, ''), site.url).toString();
-const ogImageAbs = new URL(ogImage, site.url).toString();
+const ogImageAbs = new URL(resolvedOgImage, site.url).toString();
 
 const personSchema = {
   '@context': 'https://schema.org',
@@ -111,8 +122,8 @@ const personSchema = {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
 
-    <title>{fullTitle}</title>
-    <meta name="description" content={description} />
+    <title>{resolvedTitle}</title>
+    <meta name="description" content={resolvedDescription} />
     <link rel="canonical" href={canonical} />
 
     <link rel="icon" href="/favicon.ico" sizes="any" />
@@ -120,13 +131,13 @@ const personSchema = {
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 
     <meta property="og:site_name" content={site.name} />
-    <meta property="og:type" content={ogType} />
-    <meta property="og:title" content={fullTitle} />
-    <meta property="og:description" content={description} />
+    <meta property="og:type" content={resolvedOgType} />
+    <meta property="og:title" content={resolvedTitle} />
+    <meta property="og:description" content={resolvedDescription} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={ogImageAbs} />
     <meta property="og:locale" content={lang === 'es' ? 'es_MX' : 'en_US'} />
-    {ogType === 'profile' && (
+    {resolvedOgType === 'profile' && (
       <>
         <meta property="profile:first_name" content="Emilio" />
         <meta property="profile:last_name" content="Alcolea" />
@@ -134,8 +145,8 @@ const personSchema = {
     )}
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={fullTitle} />
-    <meta name="twitter:description" content={description} />
+    <meta name="twitter:title" content={resolvedTitle} />
+    <meta name="twitter:description" content={resolvedDescription} />
     <meta name="twitter:image" content={ogImageAbs} />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />

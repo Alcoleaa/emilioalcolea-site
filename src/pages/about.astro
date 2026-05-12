@@ -6,9 +6,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import DuotonePhoto from '../components/DuotonePhoto.astro';
 import ThesisCallout from '../components/ThesisCallout.astro';
 
-const description =
-  'Long-form bio of Emilio Alcolea. Marketing operator and Tersefy founder. Cut Cost Per Surgery from $1,300 to $490 at VIDA. Twelve years across medical tourism, government, non-profits, political campaigns, and global brand work.';
-
 const faq = [
   {
     q: 'Who is Emilio Alcolea?',
@@ -47,7 +44,7 @@ const faqSchema = {
 };
 ---
 
-<BaseLayout title="About" description={description} path="/about" ogType="profile" schema={[faqSchema]}>
+<BaseLayout page="about" path="/about" schema={[faqSchema]}>
   <div class="coord-strip" slot="coord-strip">
     <span>About <span class="dot-pink">●</span> Emilio Alcolea</span>
     <span>Tijuana · MX-US · Est. 2014</span>

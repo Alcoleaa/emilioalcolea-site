@@ -82,3 +82,64 @@ export const site = {
 } as const;
 
 export type SiteConfig = typeof site;
+
+export const pageMeta = {
+  home: {
+    title: 'Emilio Alcolea · Marketing operator. Tersefy founder.',
+    description:
+      'Marketing operator and Tersefy founder based in Tijuana. 12+ years building acquisition systems across medical tourism, government, political campaigns, non-profits, and global brand work for Dell, Amazon, Toyota, Microsoft.',
+    ogImage: '/og-default.png',
+    ogType: 'website',
+  },
+  about: {
+    title: 'About Emilio Alcolea · Career across five industries',
+    description:
+      'Long-form biography of Emilio Alcolea. Career spans medical tourism (VIDA), municipal government (Boca del Río Visit Boca brand), education non-profits (UNETE), political campaigns at federal/state/municipal levels, and global brand campaigns for Dell, Amazon, Toyota, Microsoft.',
+    ogImage: '/og-default.png',
+    ogType: 'profile',
+  },
+  resume: {
+    title: 'Resume · Emilio Alcolea · Full CV with metrics',
+    description:
+      'Full structured CV of Emilio Alcolea. Tersefy founder, former CSMO at VIDA Wellness & Beauty. Senior Marketing Consultant for Washington Vascular Specialists. 12+ years across healthcare, tech, government, political campaigns, and global brand work.',
+    ogImage: '/og-default.png',
+    ogType: 'profile',
+  },
+  writing: {
+    title: 'Writing · Emilio Alcolea · The Insider Dispatch and publications',
+    description:
+      'Selected writing by Emilio Alcolea. The Insider Dispatch weekly newsletter on marketing operations and AI search. Tersefy publications on GEO and medical tourism. Editorial production across medical, wellness, marketing, and tech verticals.',
+    ogImage: '/og-default.png',
+    ogType: 'website',
+  },
+  contact: {
+    title: 'Contact Emilio Alcolea · AI visibility and growth consulting',
+    description:
+      'Contact Emilio Alcolea, marketing operator and Tersefy founder. Available for consulting on AI Visibility, GEO, AEO, SEO for doctors and medical practices, marketing operations, revenue strategy, and cross-border MX-US growth.',
+    ogImage: '/og-default.png',
+    ogType: 'website',
+  },
+  expertise: {
+    title: 'Expertise · Emilio Alcolea · Multi-industry operator',
+    description:
+      'Expertise overview of Emilio Alcolea organized by industry. AI Visibility, marketing operations, cross-border MX-US growth, medical tourism, political and government communications, non-profit fundraising, brand strategy.',
+    ogImage: '/og-default.png',
+    ogType: 'profile',
+  },
+  caseStudies: {
+    title: 'Case Studies · Emilio Alcolea',
+    description:
+      'Documented case studies of marketing and acquisition systems built by Emilio Alcolea. Methodology, constraints, strategy, results, and what transferred to subsequent work.',
+    ogImage: '/og-default.png',
+    ogType: 'website',
+  },
+  vidaCaseStudy: {
+    title: 'VIDA Wellness & Beauty Case Study · Emilio Alcolea',
+    description:
+      'How Cost Per Surgery was reduced from $1,300 to $490 (62%) at VIDA Wellness & Beauty Center while cutting ad spend 20%. The methodology that became Tersefy.',
+    ogImage: '/og-default.png',
+    ogType: 'article',
+  },
+} as const;
+
+export type PageKey = keyof typeof pageMeta;
