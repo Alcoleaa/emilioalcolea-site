@@ -48,7 +48,12 @@ const personSchema = {
   name: site.author.name,
   url: site.url,
   image: new URL(site.portrait, site.url).toString(),
-  sameAs: [site.social.linkedin, site.social.substack, site.social.tersefy],
+  sameAs: [
+    site.social.linkedin,
+    site.social.substack,
+    site.social.tersefy,
+    site.social.github,
+  ],
   jobTitle: 'Founder',
   worksFor: {
     '@type': 'Organization',
@@ -62,6 +67,14 @@ const personSchema = {
     occupationLocation: {
       '@type': 'City',
       name: 'Tijuana',
+      containedInPlace: {
+        '@type': 'AdministrativeArea',
+        name: 'Baja California',
+        containedInPlace: {
+          '@type': 'Country',
+          name: 'Mexico',
+        },
+      },
     },
     skills:
       'AI Visibility, Generative Engine Optimization, Answer Engine Optimization, SEO, Marketing Operations, Revenue Operations, Cross-border Marketing',
@@ -76,9 +89,18 @@ const personSchema = {
     '@type': 'EducationalOrganization',
     name: 'Tec Milenio',
   },
+  hasCredential: site.hasCredential.map((c) => ({
+    '@type': 'EducationalOccupationalCredential',
+    name: c.name,
+    credentialCategory: 'certification',
+    recognizedBy: {
+      '@type': 'Organization',
+      ...c.recognizedBy,
+    },
+  })),
   knowsAbout: site.knowsAbout,
   knowsLanguage: site.knowsLanguage,
-  description: site.defaultDescription,
+  description: site.personDescription,
 };
 ---
 
