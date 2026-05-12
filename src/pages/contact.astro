@@ -28,12 +28,8 @@ import { site } from '../data/site';
       <span class="value"><a href={`mailto:${site.author.email}`}>{site.author.email}</a></span>
     </li>
     <li>
-      <span class="label">Phone (MX)</span>
-      <span class="value"><a href={`tel:${site.author.phoneMx.replace(/\s/g, '')}`}>{site.author.phoneMx}</a></span>
-    </li>
-    <li>
-      <span class="label">Phone (US)</span>
-      <span class="value"><a href={`tel:${site.author.phoneUs.replace(/\s/g, '')}`}>{site.author.phoneUs}</a></span>
+      <span class="label">WhatsApp</span>
+      <span class="value"><a href={`https://wa.me/${site.author.whatsappE164}`}>{site.author.whatsapp}</a></span>
     </li>
     <li>
       <span class="label">LinkedIn</span>

@@ -21,6 +21,8 @@ export const site = {
     email: 'egalcolea@gmail.com',
     phoneMx: '+52 663 441 2590',
     phoneUs: '+1 619 904-7542',
+    whatsapp: '+52 229 958 6375',
+    whatsappE164: '522299586375',
     city: 'Tijuana',
     region: 'Baja California',
     country: 'MX',
