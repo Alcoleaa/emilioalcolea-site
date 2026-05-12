@@ -1,0 +1,95 @@
+---
+/**
+ * Expertise - multi-industry expertise hub. Per BRIEF v4 Section 8.
+ */
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site, pageMeta } from '../data/site';
+
+const profilePageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfilePage',
+  '@id': `${site.url}/expertise/#profilepage`,
+  url: `${site.url}/expertise`,
+  name: 'Expertise of Emilio Alcolea',
+  headline: 'Expertise across industries',
+  description: pageMeta.expertise.description,
+  inLanguage: 'en-US',
+  mainEntity: { '@id': `${site.url}/#person` },
+  isPartOf: { '@id': `${site.url}/#website` },
+};
+---
+
+<BaseLayout page="expertise" path="/expertise" schema={[profilePageSchema]}>
+  <div class="coord-strip" slot="coord-strip">
+    <span>Expertise <span class="dot-pink">●</span> Multi-industry operator</span>
+    <span>Tijuana · MX-US · Est. 2014</span>
+  </div>
+
+  <div class="page-label">
+    <span>/expertise</span>
+  </div>
+
+  <h1 class="page-title">Expertise across industries.</h1>
+
+  <p class="bio-lead">
+    I build marketing, acquisition, and communication systems across industries where trust, timing, and conversion matter. Twelve years of operator work in healthcare, government, political campaigns, non-profits, and global brands.
+  </p>
+
+  <section class="expertise-cluster" id="ai-visibility">
+    <h2 class="h2-rosa">AI Visibility and Search Strategy</h2>
+    <p>Generative Engine Optimization (GEO), Answer Engine Optimization (AEO), Search Engine Optimization (SEO), LLM presence analysis, entity building, FAQPage schema, JSON-LD structured data, and AI marketing automation.</p>
+    <p><strong>Applied at</strong>: Tersefy (founder, 2025 to present), Washington Vascular Specialists (Senior Marketing Consultant, 2021 to 2023), VIDA Wellness & Beauty Center (CSMO, 2023 to 2026, AI Closer System roadmap).</p>
+    <p><strong>Documented result</strong>: AI Closer System supporting 18,000+ monthly inbound patient inquiries across 5 specialists with sub-minute first response.</p>
+  </section>
+
+  <section class="expertise-cluster" id="marketing-operations">
+    <h2 class="h2-cobalt">Marketing and Revenue Operations</h2>
+    <p>Performance marketing, paid media governance, P&L management, zero-based budgeting, ICP segmentation, pricing strategy, customer experience design, conversion optimization, and customer acquisition cost reduction.</p>
+    <p><strong>Applied at</strong>: VIDA Wellness & Beauty Center (CSMO), UNETE (Senior Digital Strategy Manager), Washington Vascular Specialists (Senior Marketing Consultant).</p>
+    <p><strong>Documented result</strong>: Reduced Cost Per Surgery from $1,300 to $490 (a 62% reduction) at VIDA while cutting overall ad spend 20%. See <a href="/case-studies/vida">the full VIDA case study</a>.</p>
+  </section>
+
+  <section class="expertise-cluster" id="cross-border-marketing">
+    <h2 class="h2-ochre">Cross-border MX-US Growth</h2>
+    <p>Bilingual EN/ES content systems, cultural translation of value propositions, US patient acquisition for Mexican specialty practices, cross-border partnership development, and binational performance marketing.</p>
+    <p><strong>Applied at</strong>: Tersefy, VIDA Wellness & Beauty Center, Washington Vascular Specialists, UNETE.</p>
+    <p><strong>Documented result</strong>: Multiple cross-border channels producing measurable acquisition outcomes for US-based patients and donors.</p>
+  </section>
+
+  <section class="expertise-cluster" id="political-communications">
+    <h2 class="h2-green">Political and Government Communications</h2>
+    <p>Political campaign strategy, election-day field operations, opposition research, data-driven narratives, executive communications, press relations, crisis communications, and public sector positioning.</p>
+    <p><strong>Applied at</strong>: Principal Consultant (independent practice, 2017 to 2021) for candidates at federal, state, and municipal levels in Mexico; Deputy Director of Communications at City of Boca del Río (2017 to 2021).</p>
+    <p><strong>Documented result</strong>: Multiple winning political campaigns across electoral cycles. Launched Visit Boca city tourism brand achieving +270% web traffic and +60% engagement.</p>
+  </section>
+
+  <section class="expertise-cluster" id="brand-strategy">
+    <h2 class="h2-rosa">Brand Strategy and Creative Direction</h2>
+    <p>Brand strategy, creative direction, content systems, technical SEO, editorial production, multi-account communications, and integrated campaign execution for enterprise brands.</p>
+    <p><strong>Applied at</strong>: Agency Gallo Reyna (Creative Director, 2014 to 2017) for Dell, Amazon, Toyota, and Microsoft alongside regional clients.</p>
+    <p><strong>Documented result</strong>: Increased agency profits by 30% while leading a 15-person creative team.</p>
+  </section>
+
+  <section class="expertise-cluster" id="medical-tourism">
+    <h2 class="h2-cobalt">Medical Tourism Strategy</h2>
+    <p>Patient acquisition systems, doctor reputation and credential strategy, trust signals for cross-border patients, treatment page optimization, conversion funnels, and AI-driven patient inquiry handling.</p>
+    <p><strong>Applied at</strong>: Tersefy (founder), VIDA Wellness & Beauty Center (CSMO), Washington Vascular Specialists (Senior Marketing Consultant).</p>
+    <p><strong>Documented result</strong>: The methodology that became Tersefy. See <a href="/case-studies/vida">the VIDA case study</a> for details.</p>
+  </section>
+
+  <section class="expertise-cluster" id="content-systems">
+    <h2 class="h2-ochre">Content Systems and Editorial Production</h2>
+    <p>Bilingual EN/ES content systems, editorial production at scale, ghostwriting across verticals, newsletter operations, technical SEO content, and AI-extractable content architecture.</p>
+    <p><strong>Applied across</strong>: The Insider Dispatch (active weekly newsletter), Tersefy publications, and 6,000+ ghostwritten articles across medical, wellness, lifestyle, marketing, and tech verticals.</p>
+  </section>
+
+  <section class="expertise-related">
+    <h3>Related</h3>
+    <ul>
+      <li><a href="/resume">Full structured CV with metrics</a></li>
+      <li><a href="/case-studies">Documented case studies</a></li>
+      <li><a href="/about">Long-form bio</a></li>
+      <li><a href="/contact">Contact</a></li>
+    </ul>
+  </section>
+</BaseLayout>

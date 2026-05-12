@@ -1170,6 +1170,79 @@ ol {
   color: var(--ink);
 }
 
+/* ---- Expertise hub clusters --------------------------------------- */
+.expertise-cluster {
+  margin: 2.5rem 0;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--rule-soft);
+}
+
+.expertise-cluster:last-of-type {
+  border-bottom: none;
+}
+
+.expertise-cluster h2 {
+  margin-top: 0;
+  margin-bottom: 1.25rem;
+}
+
+.expertise-cluster p {
+  font-family: var(--font-body);
+  font-size: 1em;
+  line-height: 1.6;
+  color: var(--ink);
+  margin: 0 0 1rem;
+}
+
+.expertise-cluster p strong {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--ink-muted);
+  font-weight: 600;
+  margin-right: 0.35rem;
+}
+
+.expertise-cluster a {
+  color: var(--rosa);
+  border-bottom: 1px dotted var(--rosa);
+  text-decoration: none;
+}
+
+.expertise-related {
+  margin-top: 3rem;
+  padding-top: 1.75rem;
+  border-top: 2px solid var(--ink);
+}
+
+.expertise-related h3 {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--ink-muted);
+  font-weight: 600;
+  margin: 0 0 0.75rem;
+}
+
+.expertise-related ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.expertise-related li {
+  margin: 0.4rem 0;
+}
+
+.expertise-related a {
+  font-family: var(--font-body);
+  color: var(--ink);
+  border-bottom: 1px dotted var(--ink);
+  text-decoration: none;
+}
+
 /* ---- Resume selected results -------------------------------------- */
 .selected-results {
   display: grid;

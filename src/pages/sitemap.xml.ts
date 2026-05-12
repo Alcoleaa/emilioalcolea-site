@@ -5,6 +5,7 @@ const LASTMOD = new Date().toISOString();
 const urls: Array<{ loc: string; priority: string }> = [
   { loc: 'https://emilioalcolea.com/', priority: '1.0' },
   { loc: 'https://emilioalcolea.com/about', priority: '0.8' },
+  { loc: 'https://emilioalcolea.com/expertise', priority: '0.8' },
   { loc: 'https://emilioalcolea.com/resume', priority: '0.8' },
   { loc: 'https://emilioalcolea.com/writing', priority: '0.8' },
   { loc: 'https://emilioalcolea.com/contact', priority: '0.8' },

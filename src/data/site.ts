@@ -75,8 +75,9 @@ export const site = {
   nav: [
     { href: '/', label: 'Home' },
     { href: '/about', label: 'About' },
-    { href: '/writing', label: 'Writing' },
+    { href: '/expertise', label: 'Expertise' },
     { href: '/resume', label: 'Resume' },
+    { href: '/writing', label: 'Writing' },
     { href: '/contact', label: 'Contact' },
   ],
 } as const;
