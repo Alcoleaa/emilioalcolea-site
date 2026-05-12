@@ -1170,6 +1170,48 @@ ol {
   color: var(--ink);
 }
 
+/* ---- Resume selected results -------------------------------------- */
+.selected-results {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin: 0.5rem 0 0;
+}
+
+@media (min-width: 720px) {
+  .selected-results {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem 1.5rem;
+  }
+}
+
+.selected-results > .resume-h2 {
+  grid-column: 1 / -1;
+}
+
+.result-block {
+  border-left: 3px solid var(--rosa);
+  padding: 0.35rem 0 0.35rem 0.85rem;
+}
+
+.result-block h3 {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--ink-muted);
+  margin: 0 0 0.35rem;
+  font-weight: 600;
+}
+
+.result-block p {
+  font-family: var(--font-body);
+  font-size: 0.95em;
+  line-height: 1.5;
+  color: var(--ink);
+  margin: 0;
+}
+
 /* ---- Resume publications & meta blocks ----------------------------- */
 .resume-pub {
   margin-bottom: 1.25rem;
