@@ -376,6 +376,88 @@ ol {
   border-top: 1px solid rgba(255, 255, 255, 0.4);
 }
 
+/* ---- Impact section (5 impact-blocks reusing flagship-inner) ---------- */
+.impact-section {
+  margin: 3rem 0 3.5rem;
+}
+
+.impact-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.75rem;
+  margin-top: 1.75rem;
+}
+
+@media (max-width: 768px) {
+  .impact-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+}
+
+.impact-block {
+  position: relative;
+  isolation: isolate;
+  padding: 1.5rem 1.5rem 1.25rem;
+}
+
+.impact-block::before {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  right: -8px;
+  bottom: -8px;
+  background: var(--ochre);
+  z-index: -1;
+}
+
+.impact-block .flagship-stat {
+  font-size: clamp(28px, 4vw, 44px);
+}
+
+.impact-block .flagship-stat.brands {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(20px, 2.6vw, 28px);
+  letter-spacing: 0;
+}
+
+.impact-block.cobalt {
+  background: var(--cobalt);
+}
+
+.impact-block.cobalt::before {
+  background: var(--rosa);
+}
+
+.impact-block.ochre {
+  background: var(--ochre);
+  color: var(--ink);
+}
+
+.impact-block.ochre .flagship-stat .pct {
+  background: var(--ink);
+  color: var(--ochre);
+}
+
+.impact-block.ochre .flagship-desc {
+  border-top-color: rgba(0, 0, 0, 0.25);
+}
+
+.impact-block.ochre::before {
+  background: var(--rosa);
+}
+
+.impact-block.green {
+  background: var(--green);
+}
+
+.impact-block.green::before {
+  background: var(--ochre);
+}
+
 /* ---- Thesis callout (same layered technique, mono label + italic body) */
 .thesis-callout {
   position: relative;
