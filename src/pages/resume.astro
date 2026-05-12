@@ -38,7 +38,7 @@ const profilePageSchema = {
 <BaseLayout page="resume" path="/resume" schema={[profilePageSchema]}>
   <div class="coord-strip" slot="coord-strip">
     <span>Resume <span class="dot-pink">●</span> Emilio Alcolea</span>
-    <span>egalcolea@gmail.com · +52 229 958 6375</span>
+    <span><!--email_off-->egalcolea@gmail.com<!--/email_off--> · +52 229 958 6375</span>
   </div>
 
   <div class="page-label">
@@ -52,7 +52,7 @@ const profilePageSchema = {
   </p>
 
   <div class="resume-contact">
-    <a href={`mailto:${site.author.email}`}>{site.author.email}</a>
+    <!--email_off--><a href={`mailto:${site.author.email}`}>{site.author.email}</a><!--/email_off-->
     <span class="sep">·</span>
     <a href={`tel:${site.author.phoneE164}`}>{site.author.phone}</a>
     <span class="sep">·</span>
