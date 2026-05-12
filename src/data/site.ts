@@ -138,7 +138,7 @@ export const pageMeta = {
   vidaCaseStudy: {
     title: 'VIDA Wellness & Beauty Case Study · Emilio Alcolea',
     description:
-      'How Cost Per Surgery was reduced from $1,300 to $490 (62%) at VIDA Wellness & Beauty Center while cutting ad spend 20%. The methodology that became Tersefy.',
+      'How Cost Per Surgery was reduced from $1,300 to $490 (62%) at VIDA Wellness & Beauty Center while cutting total ad spend 20% and holding procedure volume. P&L governance, funnel diagnostics, sales operations, patient experience design.',
     ogImage: '/og-default.png',
     ogType: 'article',
   },

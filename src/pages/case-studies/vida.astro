@@ -1,8 +1,7 @@
 ---
 /**
- * VIDA case study skeleton. Per BRIEF v4 Section 9.
- * Full long-form content is deferred; this page holds the URL,
- * schema, and structural skeleton.
+ * VIDA case study (full long-form). Per BRIEF v4 Section 9.
+ * Replaces the original skeleton. Operator-lens, not AI-visibility lens.
  */
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { site, pageMeta } from '../../data/site';
@@ -22,7 +21,10 @@ const articleSchema = {
     'Medical Tourism Marketing',
     'Customer Acquisition Cost Optimization',
     'Cross-border MX-US Marketing',
-    'AI Patient Acquisition',
+    'Marketing Operations',
+    'Revenue Operations',
+    'Sales Operations',
+    'Patient Experience Design',
   ],
   mentions: [
     {
@@ -38,7 +40,7 @@ const articleSchema = {
 <BaseLayout page="vidaCaseStudy" path="/case-studies/vida" schema={[articleSchema]}>
   <div class="coord-strip" slot="coord-strip">
     <span>Case study <span class="dot-pink">●</span> VIDA Wellness & Beauty Center</span>
-    <span>Tijuana · 2023 to 2026</span>
+    <span>Tijuana · Jul 2023 to Apr 2026</span>
   </div>
 
   <div class="page-label">
@@ -46,54 +48,139 @@ const articleSchema = {
   </div>
 
   <h1 class="page-title">VIDA Wellness & Beauty Center</h1>
-  <p class="case-study-meta">Medical Tourism · Tijuana, Mexico · 2023 to 2026 · Chief Sales and Marketing Officer</p>
-
-  <div class="case-study-tldr">
-    <h2>The result</h2>
-    <p>Reduced Cost Per Surgery from $1,300 to $490 (a 62% reduction) over the engagement, while reducing overall ad spend by 20%. Volume held, profitability increased. The methodology behind this reduction became the foundation of Tersefy.</p>
-  </div>
+  <p class="case-study-meta">Medical Tourism · Tijuana, Mexico · Jul 2023 to Apr 2026 · Chief Sales and Marketing Officer</p>
 
   <section class="case-study-section">
-    <h2>The problem</h2>
-    <p>VIDA Wellness & Beauty Center is a multi-specialty medical tourism provider in Tijuana serving primarily US patients across plastic surgery, bariatric surgery, dentistry, and aesthetic medicine. At the start of the engagement, customer acquisition cost was high, ad dependency was structural, and growth was inefficient.</p>
-    <p><em>[Detailed problem analysis to be added: paid media efficiency baseline, conversion funnel diagnostics, patient acquisition costs across specialties, channel mix breakdown.]</em></p>
+    <h2>Executive summary</h2>
+    <p>At VIDA, my job was not to generate more leads. It was to make growth more profitable.</p>
+    <p>The core challenge was a high-dependency acquisition model: paid media was producing volume, but Cost Per Surgery was too high, attribution was fragmented, and the patient journey had operational leaks between first inquiry and booked procedure.</p>
+    <p>Over the engagement, I reduced Cost Per Surgery from $1,300 to $490 (a 62% reduction), while reducing total ad spend by 20% and maintaining procedure volume. The work combined P&L governance, funnel diagnostics, lead quality scoring, specialty-level budget allocation, sales operations, and patient experience design.</p>
+    <p>This case study covers the operator work at VIDA: P&L governance, funnel diagnostics, sales operations. For the AI visibility lens on this same engagement, see the <a href="https://tersefy.com/case-studies/vida/">Tersefy case study</a>.</p>
+  </section>
+
+  <section class="case-study-section">
+    <h2>The business problem</h2>
+    <p>VIDA was not a simple lead generation problem.</p>
+    <p>The clinic had demand, brand awareness, multiple specialties, and a strong operational platform near the San Diego-Tijuana border. The issue was efficiency. Paid media spend was high, Cost Per Surgery was too expensive, and marketing performance was often discussed at the lead level instead of the revenue level.</p>
+    <p>The key questions became:</p>
+    <ul>
+      <li>Which procedures were profitable after marketing cost?</li>
+      <li>Which doctors converted virtual consultations into surgery?</li>
+      <li>Which lead sources produced real surgical candidates, not just form fills?</li>
+      <li>Where did patients drop between inquiry, consultation, quote, deposit, and surgery?</li>
+      <li>Which campaigns should be scaled, paused, or rebuilt?</li>
+      <li>How much budget could be removed without damaging procedure volume?</li>
+    </ul>
   </section>
 
   <section class="case-study-section">
     <h2>Constraints</h2>
-    <p><em>[Constraints to be added: operational constraints, channel constraints, market constraints, internal constraints.]</em></p>
+    <p>This was not a clean-room rebuild. Several operating constraints shaped how the work happened:</p>
+    <ul>
+      <li>Multi-specialty provider with different patient acquisition economics across plastic surgery, bariatrics, dentistry, and aesthetic medicine</li>
+      <li>Patients booking from the US, with cross-border friction in trust, travel logistics, and pricing comparison</li>
+      <li>Marketing, sales, and clinical operations historically operated in adjacent but uncoordinated workflows</li>
+      <li>Attribution between paid media inquiry and surgical procedure was opaque</li>
+      <li>High-ticket medical decisions with long consideration windows, multi-touch journeys, and significant patient risk perception</li>
+      <li>A team of marketing coordinators and patient coordinators with established workflows that needed evolution, not replacement</li>
+    </ul>
+    <p>The work had to respect these constraints, not pretend they did not exist.</p>
   </section>
 
   <section class="case-study-section">
-    <h2>Strategy</h2>
-    <p>The strategy combined P&L governance, zero-based budgeting, ICP segmentation across MX and US markets, and an AI-driven lead routing roadmap.</p>
-    <p><em>[Detailed strategy to be added: P&L governance approach, zero-based budgeting model, ICP segmentation methodology, channel reallocation framework, AI lead routing acceptance criteria.]</em></p>
+    <h2>My role</h2>
+    <p>As Chief Sales and Marketing Officer, I led the commercial side of the growth system.</p>
+    <p>My responsibilities included:</p>
+    <ul>
+      <li>Paid media governance across Meta and Google</li>
+      <li>Budget allocation by specialty, doctor, and funnel stage</li>
+      <li>Funnel diagnostics from lead to surgery</li>
+      <li>Sales and coordinator process improvement</li>
+      <li>CRM and data structure requirements</li>
+      <li>Lead quality definitions</li>
+      <li>Cost Per Surgery reporting</li>
+      <li>Patient journey and CX mapping</li>
+      <li>Loyalty and referral program architecture</li>
+      <li>Cross-functional coordination between marketing, sales, doctors, and operations</li>
+    </ul>
+    <p>The role was not limited to campaign management. It was a revenue operations role inside a high-ticket medical tourism business.</p>
   </section>
 
   <section class="case-study-section">
-    <h2>The system built</h2>
-    <p><em>[System to be added: VIDA Tool unified data platform, AI Closer System operational requirements, customer experience framework, loyalty/referral program architecture, response-time SLA framework.]</em></p>
+    <h2>The strategy</h2>
+    <p>The strategy had four parts.</p>
+
+    <h3>1. Move from lead volume to surgery economics</h3>
+    <p>The first shift was metric discipline.</p>
+    <p>Cost Per Lead was useful for campaign comparison, but it was not the metric that mattered most. The main operating metric became Cost Per Surgery, because it connected marketing spend to actual booked procedures.</p>
+    <p>This changed budget conversations. A campaign with cheap leads could be cut if those leads did not become surgical patients. A more expensive campaign could be protected if it produced stronger candidates and better surgery conversion.</p>
+
+    <h3>2. Rebuild funnel visibility</h3>
+    <p>We mapped the patient journey from first inquiry to surgery.</p>
+    <p>The critical stages were:</p>
+    <ul>
+      <li>Lead submitted</li>
+      <li>Contact attempt</li>
+      <li>Medical information requested</li>
+      <li>Photos or documents received</li>
+      <li>Virtual consultation scheduled</li>
+      <li>Virtual consultation completed</li>
+      <li>Quote sent</li>
+      <li>Deposit requested</li>
+      <li>Deposit paid</li>
+      <li>Surgery booked</li>
+      <li>Procedure completed</li>
+    </ul>
+    <p>This exposed where growth was leaking. Some leaks were marketing problems. Others were sales process problems. Others were doctor availability, quote timing, pricing expectation, or follow-up issues. Treating these as one problem ("conversion is low") was the wrong abstraction. Each stage had its own owner, its own constraint, and its own intervention.</p>
+
+    <h3>3. Segment by specialty and doctor</h3>
+    <p>VIDA was a multi-specialty provider, so one blended acquisition number was not enough.</p>
+    <p>Plastic surgery, bariatrics, dentistry, and aesthetic medicine behaved differently. Doctors also converted differently depending on specialty, procedure, patient profile, price point, and consultation flow.</p>
+    <p>The budget model had to reflect those differences. That meant reallocating spend based on real downstream performance, not just top-of-funnel lead cost. In practice this meant pausing some specialty campaigns that were producing cheap leads but few surgeries, and increasing spend on specialty campaigns where Cost Per Surgery was structurally lower despite higher Cost Per Lead.</p>
+
+    <h3>4. Build operating systems, not one-off campaigns</h3>
+    <p>The work was not only campaign optimization.</p>
+    <p>We built repeatable systems: reporting definitions, lead qualification logic, follow-up expectations, coordinator workflows, referral and loyalty mechanisms, and early AI lead routing requirements that would later become the AI Closer System.</p>
+    <p>The goal was to make growth less dependent on constant budget increases and more dependent on operational discipline.</p>
+  </section>
+
+  <section class="case-study-section">
+    <h2>What changed</h2>
+    <p>The main change was that acquisition became governed by business outcomes instead of marketing vanity metrics.</p>
+    <p>VIDA moved away from asking only:</p>
+    <p class="case-study-pullquote">"What is our CPL?"</p>
+    <p>And toward:</p>
+    <p class="case-study-pullquote">"What did it cost us to produce a booked surgery, by specialty, by doctor, and by source?"</p>
+    <p>That question changed the entire operating rhythm. Weekly reviews stopped being campaign-level. They became specialty-level and surgery-level. Budget reallocations stopped being based on which campaign had the best CTR. They were based on which campaigns produced the most booked procedures at the lowest cost per booked procedure.</p>
   </section>
 
   <section class="case-study-section">
     <h2>Results</h2>
     <ul>
-      <li>Cost Per Surgery reduced from $1,300 to $490 (-62%)</li>
+      <li>Cost Per Surgery reduced from $1,300 to $490</li>
+      <li>62% reduction in Cost Per Surgery</li>
       <li>Overall ad spend reduced by 20%</li>
-      <li>Volume maintained, profitability increased</li>
-      <li>End-to-end CX framework implemented (Journey Mapping, NPS, Closed-loop VoC)</li>
-      <li>Loyalty and referral program launched, increasing LTV and repeat purchase rates</li>
+      <li>Procedure volume maintained</li>
+      <li>Profitability improved</li>
+      <li>End-to-end patient journey framework implemented</li>
+      <li>Lead quality definitions established and enforced</li>
+      <li>Coordinator and follow-up process clarified, with response-time SLAs</li>
+      <li>Loyalty and referral program launched</li>
+      <li>CX framework implemented across journey mapping, NPS, and closed-loop feedback</li>
     </ul>
-    <p><em>[Additional quantified results to be added.]</em></p>
   </section>
 
   <section class="case-study-section">
-    <h2>What transferred to subsequent work</h2>
-    <p>The patient acquisition methodology, AI lead routing acceptance criteria, and customer experience framework developed at VIDA became the foundation of <a href="https://tersefy.com">Tersefy</a>, a doctor-first AI Visibility firm now serving Tijuana cross-border specialty surgeons.</p>
-    <p><em>[Detailed transfer notes to be added.]</em></p>
+    <h2>What I learned</h2>
+    <p>The biggest lesson was that medical tourism growth is not won by the team that generates the most leads.</p>
+    <p>It is won by the team that understands the full commercial system: patient intent, doctor fit, pricing expectation, response speed, consultation quality, quote clarity, follow-up discipline, and trust before travel.</p>
+    <p>In cross-border healthcare, the patient is not just buying a procedure. They are buying confidence in a decision that requires money, travel, vulnerability, and risk. Marketing operations that ignore that texture produce expensive leads who never become patients.</p>
   </section>
 
-  <section class="case-study-disclosure">
-    <p><strong>Disclosure</strong>: Some operational details remain confidential. This case study documents the methodology, constraints, and outcomes that can be disclosed publicly.</p>
+  <section class="case-study-section">
+    <h2>What later influenced Tersefy</h2>
+    <p>Some of the operating principles from VIDA later informed Tersefy as a firm: lead quality over lead volume, doctor-first positioning, cross-border patient trust, structured evidence, and the importance of what patients see before they ever contact a clinic.</p>
+    <p>Tersefy applies a different lens to a similar problem: how patients evaluate doctors through AI engines before they ever reach a clinic. That case study is on <a href="https://tersefy.com/case-studies/vida/">tersefy.com</a>, and it covers a different scope than this one.</p>
+    <p>This case study is about the operating work inside VIDA, not the AI visibility work Tersefy now provides.</p>
   </section>
 </BaseLayout>
