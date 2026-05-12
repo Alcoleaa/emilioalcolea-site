@@ -1,0 +1,99 @@
+---
+/**
+ * VIDA case study skeleton. Per BRIEF v4 Section 9.
+ * Full long-form content is deferred; this page holds the URL,
+ * schema, and structural skeleton.
+ */
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { site, pageMeta } from '../../data/site';
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  '@id': `${site.url}/case-studies/vida/#article`,
+  headline: 'VIDA Wellness & Beauty Center Case Study',
+  description: pageMeta.vidaCaseStudy.description,
+  url: `${site.url}/case-studies/vida`,
+  author: { '@id': `${site.url}/#person` },
+  publisher: { '@id': `${site.url}/#person` },
+  datePublished: '2026-05-12',
+  inLanguage: 'en-US',
+  about: [
+    'Medical Tourism Marketing',
+    'Customer Acquisition Cost Optimization',
+    'Cross-border MX-US Marketing',
+    'AI Patient Acquisition',
+  ],
+  mentions: [
+    {
+      '@type': 'Organization',
+      name: 'VIDA Wellness & Beauty Center',
+      url: 'https://vidawellnessandbeauty.com',
+    },
+    { '@type': 'Organization', '@id': 'https://tersefy.com/#organization' },
+  ],
+};
+---
+
+<BaseLayout page="vidaCaseStudy" path="/case-studies/vida" schema={[articleSchema]}>
+  <div class="coord-strip" slot="coord-strip">
+    <span>Case study <span class="dot-pink">●</span> VIDA Wellness & Beauty Center</span>
+    <span>Tijuana · 2023 to 2026</span>
+  </div>
+
+  <div class="page-label">
+    <span>/case-studies/vida</span>
+  </div>
+
+  <h1 class="page-title">VIDA Wellness & Beauty Center</h1>
+  <p class="case-study-meta">Medical Tourism · Tijuana, Mexico · 2023 to 2026 · Chief Sales and Marketing Officer</p>
+
+  <div class="case-study-tldr">
+    <h2>The result</h2>
+    <p>Reduced Cost Per Surgery from $1,300 to $490 (a 62% reduction) over the engagement, while reducing overall ad spend by 20%. Volume held, profitability increased. The methodology behind this reduction became the foundation of Tersefy.</p>
+  </div>
+
+  <section class="case-study-section">
+    <h2>The problem</h2>
+    <p>VIDA Wellness & Beauty Center is a multi-specialty medical tourism provider in Tijuana serving primarily US patients across plastic surgery, bariatric surgery, dentistry, and aesthetic medicine. At the start of the engagement, customer acquisition cost was high, ad dependency was structural, and growth was inefficient.</p>
+    <p><em>[Detailed problem analysis to be added: paid media efficiency baseline, conversion funnel diagnostics, patient acquisition costs across specialties, channel mix breakdown.]</em></p>
+  </section>
+
+  <section class="case-study-section">
+    <h2>Constraints</h2>
+    <p><em>[Constraints to be added: operational constraints, channel constraints, market constraints, internal constraints.]</em></p>
+  </section>
+
+  <section class="case-study-section">
+    <h2>Strategy</h2>
+    <p>The strategy combined P&L governance, zero-based budgeting, ICP segmentation across MX and US markets, and an AI-driven lead routing roadmap.</p>
+    <p><em>[Detailed strategy to be added: P&L governance approach, zero-based budgeting model, ICP segmentation methodology, channel reallocation framework, AI lead routing acceptance criteria.]</em></p>
+  </section>
+
+  <section class="case-study-section">
+    <h2>The system built</h2>
+    <p><em>[System to be added: VIDA Tool unified data platform, AI Closer System operational requirements, customer experience framework, loyalty/referral program architecture, response-time SLA framework.]</em></p>
+  </section>
+
+  <section class="case-study-section">
+    <h2>Results</h2>
+    <ul>
+      <li>Cost Per Surgery reduced from $1,300 to $490 (-62%)</li>
+      <li>Overall ad spend reduced by 20%</li>
+      <li>Volume maintained, profitability increased</li>
+      <li>End-to-end CX framework implemented (Journey Mapping, NPS, Closed-loop VoC)</li>
+      <li>Loyalty and referral program launched, increasing LTV and repeat purchase rates</li>
+    </ul>
+    <p><em>[Additional quantified results to be added.]</em></p>
+  </section>
+
+  <section class="case-study-section">
+    <h2>What transferred to subsequent work</h2>
+    <p>The patient acquisition methodology, AI lead routing acceptance criteria, and customer experience framework developed at VIDA became the foundation of <a href="https://tersefy.com">Tersefy</a>, a doctor-first AI Visibility firm now serving Tijuana cross-border specialty surgeons.</p>
+    <p><em>[Detailed transfer notes to be added.]</em></p>
+  </section>
+
+  <section class="case-study-disclosure">
+    <p><strong>Disclosure</strong>: Some operational details remain confidential. This case study documents the methodology, constraints, and outcomes that can be disclosed publicly.</p>
+  </section>
+</BaseLayout>

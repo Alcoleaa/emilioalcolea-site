@@ -78,6 +78,7 @@ export const site = {
     { href: '/expertise', label: 'Expertise' },
     { href: '/resume', label: 'Resume' },
     { href: '/writing', label: 'Writing' },
+    { href: '/case-studies', label: 'Case studies' },
     { href: '/contact', label: 'Contact' },
   ],
 } as const;

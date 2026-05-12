@@ -1,0 +1,37 @@
+---
+/**
+ * Case Studies index. Per BRIEF v4 Section 9.
+ */
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout page="caseStudies" path="/case-studies">
+  <div class="coord-strip" slot="coord-strip">
+    <span>Case studies <span class="dot-pink">●</span> Documented outcomes</span>
+    <span>Cross-industry · Operator work</span>
+  </div>
+
+  <div class="page-label green">
+    <span>/case-studies</span>
+  </div>
+
+  <h1 class="page-title">Case studies.</h1>
+
+  <p class="bio-lead">
+    Documented outcomes and methodologies from cross-industry operator work. Each case study covers problem, constraints, strategy, system built, results, and what transferred to subsequent work. Some client work is confidential; published case studies document what can be disclosed.
+  </p>
+
+  <section class="case-study-list">
+    <article class="case-study-preview">
+      <h2 class="h2-rosa"><a href="/case-studies/vida">VIDA Wellness & Beauty Center</a></h2>
+      <p class="case-study-meta">Medical Tourism · 2023 to 2026 · Chief Sales and Marketing Officer</p>
+      <p>How Cost Per Surgery was reduced from $1,300 to $490 (a 62% reduction) at a Tijuana medical tourism provider serving primarily US patients, while cutting overall ad spend by 20%. The methodology that became Tersefy.</p>
+      <a href="/case-studies/vida" class="read-link">Read the case study →</a>
+    </article>
+  </section>
+
+  <section class="case-study-coming">
+    <h3>More case studies in development</h3>
+    <p>Additional case studies documenting Visit Boca tourism brand launch (City of Boca del Río), UNETE cross-border fundraising, and Agency Gallo Reyna brand campaigns are in preparation.</p>
+  </section>
+</BaseLayout>
